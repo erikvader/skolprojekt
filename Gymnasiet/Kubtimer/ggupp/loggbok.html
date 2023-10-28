@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Loggbok</title>
+</head>
+<body>
+
+	<div class="inlagg">
+		<h1>3/2-16</h1>
+		<p>Idag har jag skrivit min planering och lyckats gjort grunden på min sida. Jag har dessutom hunnit lägga in loggan.</p>
+	</div>
+	
+	<div class="inlagg">
+		<h1>10/2-16</h1>
+		<p>Idag har jag fixat till mobilversionen! Den funkar perfekt! Nästa lektion ska jag fixa till funktionerna kanske</p>
+	</div>
+	
+	<div class="inlagg">
+		<h1>2/3-16</h1>
+		<p>Idag har jag fixat till så att timern funkar skitbra! Jag har dessutom börjat att generera blandningar. Det går att göra alla sorters blandingar, men css:en för hur de ser ut är inte fixad än. Man kan inte välja vilken blanding man vill ha än heller. </p>
+	</div>
+	
+	<div class="inlagg">
+		<h1>9/3-16</h1>
+		<p>Idag har jag fixat så att all scale:ing för timern och blandningarna funkar! Jag implementerade en binärsökning för att åstadkomma detta. Det är inte helt perfekt, och jag har inte en aning om varför, men det är tillräckligt bra för detta ändamål. Jag har nyss börjat på de första inställningarna man ska kunna välja mellan; blandningar. </p>
+	</div>
+	
+	<div class="inlagg">
+		<h1>23/3-16</h1>
+		<p>Idag har jag äntligen lyckats fixa så att timern på mobilversionen fungerar som den ska! Det som inte funkade var att när man höll ner fingret så blev skärmen röd och sedan grön efter ett tag, precis som det ska. Men! när man sedan släppte fingret startade inte timern, utan man var tvungen att trycka snabbt en gång till för att få timern att starta. Problemet var att något event kördes när man håller ner fingret ett tag, detta event gjorde tydligen så att touchend inte kördes alls. i Chrome kommer det fram en högerklicksmeny om man håller in fingret, och det var detta event som förstörde allt. På mobilen kommer det inte upp någon meny, och det är antagligen för att den inte har någonting vettigt att ta fram, som att få alternativ för att ladda ner en bild eller något. Men eventet kördes ändå och förstörde allt. Efter googlande upptäckte jag att det elaka eventet hette oncontextmenu. Jag tog lite kod där jag inte riktigt fattar vad som händer, men den lyckas stoppa eventet och timern funkar nu suveränt på mobilen! Nu är det bara att se vad nästa stora utmaning kommer att vara...</p>
+	</div>
+	
+	<div class="inlagg">
+		<h1>15/4-16</h1>
+		<p>Idag har jag omstruktuerat hur tiderna och snitten visas. Innan visades båda med tables, vilket gjorde allting onödigt komplicerat samt så funkade inte css som jag ville med dem. Nu har jag ändrat så att det är divar som struktuerar upp allt. Nu om jag vill ändra hur många kolumner jag vill ha på tidshistoriken så behöver jag endast ändra bredden på dem. När ajg hade tables så skulle jag vara tvungen att flytta runt på massvis med td och lägga till massor med tr, inte kul alltså. Snitten räknas nu också ut och allt det borde funka som det ska. Nu blir det att lägga till några extrafunktioner och kanske göra så att sidan ser bra ut. </p>
+	</div>
+	
+	<div class="inlagg">
+		<h1>17/4-16</h1>
+		<p>Idag har jag lyckats lägga till ett linjediagram med hjälp av Chart.js som visar ens tider och snitt över tid. Jag har dessutom lagt till stöd för cookies, så nu sparas alla ens tider och inställningar i 100 dagar. </p>
+	</div>
+	
+	<div class="inlagg">
+		<h1>18/4-16</h1>
+		<p>Idag har jag fixat lite smågrejer här och där. Jag har b.la. fixat layouten på den lilla ruta som ommer upp när man klickar på en tid, jag har fixat layouten på options-rutan och så att lite mer text scalear till sin div. Det var väldigt bra att jag skrev mitt plugin, för jag använder det överallt. Det sista som jag gjorde idag var att lägga till support för skins! allting verkar funka som det ska, så det enda som behövs nu är att någon gör massor med css-filer för att få till olika coola skins.</p>
+	</div>
+	
+	<div class="inlagg">
+		<h1>20/4-16</h1>
+		<p>Idag har jag gjort egna input-element så att man kan scalea dem. Jag gråter dessutom för att ingenting gick bra idag (trött ifrån svenska nationella). Viktor vill att jag ska trukturera om allting ganska mycket, så jag är inte glad.</p>
+	</div>
+	
+	<div class="inlagg">
+		<h1>24/4-16</h1>
+		<p>Idag har jag lyckats placera ut de tre toplänkarna (hjälp, funktioner etc.) så att de funkar osv. Nu ska jag bara göra så att någonting ens händer när mna klickar på dem.</p>
+	</div>
+	
+	<div class="inlagg">
+		<h1>2/5-16</h1>
+		<p>Idag har jag försökt fixa avrundningsproblemet jag har haft på mitt plugin. Texten blev ibland för stor, och det beror ju på att webläsaren inte ändrar storleken på decimalnivå. Jag tänkte att jag skulle lösa detta genom att använda en mer exakt metod. Canvas-elementet har en funktion för att mäta text med stor precision. Problemet efter att ha implementerat detta i en timme så upptäckte jag att man inte kunde ange font-storleken med decimaler, den avrundade alltid. Så denna metod blev inte alls bättre. Det jag gjorde för att tillslut lösa mitt problem var att lägga till en dubbelkoll. Om nu texten skulle vara bredare än rutan efter sökningen så minskar den font-storleken med 1. Det borde räcka med endast 1 för att resultatet man fick från sökningen ska vara precis på gränsen, och då borde en enhet skifta allt till att bli mindre.</p>
+	</div>
+	
+	<div class="inlagg">
+		<h1>10/5-16</h1>
+		<p>Idag har jag och Viktor fixat till ett par teman på sidan, så nu ser den ut som en färdig produkt!</p>
+	</div>
+	
+</body>
+</html>

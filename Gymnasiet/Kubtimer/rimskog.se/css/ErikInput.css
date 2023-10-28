@@ -1,0 +1,41 @@
+.erikCheckbox{
+	border: 1px solid rgba(0,0,0, 1);
+	background: rgba(255, 255, 255, 1);
+	width: 15px;
+	height: 15px;
+	display: inline-block;
+	position: relative;
+}
+
+.erikCheckbox.checked:after{
+	content: '';
+	position: absolute;
+	left: 10%;
+	top: 10%;
+	width: 80%;
+	height: 80%;
+	/*background: rgba(0,0,0, 1);*/
+	background-image: url('../img/sign.svg');
+	background-size: 100% 100%;
+}
+
+.erikRadio{
+	border: 1px solid rgba(0,0,0, 1);
+	background: rgba(255, 255, 255, 1);
+	width: 15px;
+	height: 15px;
+	display: inline-block;
+	position: relative;
+	border-radius: 50%;
+}
+
+.erikRadio.checked:after{
+	content: '';
+	position: absolute;
+	left: 15%;
+	top: 15%;
+	width: 70%;
+	height: 70%;
+	background: rgba(0,0,0, 1);
+	border-radius: 50%;
+}

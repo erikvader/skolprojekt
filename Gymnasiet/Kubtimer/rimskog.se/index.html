@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="author" content="Erik Rimskog">
+	<meta name="description" content="En sida som typ är en sida typ">
+	<meta name="robots" content="index, nofollow">
+	<meta name="keywords" content="speedcubing, cuboss, timer">
+	
+	<link rel="icon" href="http://www.cuboss.se/wp-content/uploads/2016/04/cropped-Cubosskubikon-32x32.png" sizes="32x32" />
+	
+	<title>Cuboss Timer</title>
+	<link href="css/stil.css" rel="stylesheet" type="text/css">
+	<link href="css/ErikInput.css" rel="stylesheet" type="text/css">
+	<link id="skinsLink" href="css/skins/cuboss.css" rel="stylesheet" type="text/css">
+	
+	<script type="text/javascript" src="js/jquery.js"></script>
+	<script type="text/javascript" src="js/ErikInput.js"></script>
+	<script type="text/javascript" src="js/Chart.js"></script>
+	<script type="text/javascript" src="js/ErikFontisizer.js"></script>
+	<script type="text/javascript" src="js/mina_script.js"></script>
+</head>
+<body class="noSelect">
+
+	<div id="topTopper">
+		<div>Speedcubing för Sverige!</div>
+		<a href="http://www.cuboss.se">Till Cuboss.se</a>
+	</div>
+
+	<div id="topper">
+		<div id="logga">
+			<svg version="1.1" id="Paths" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 660 123" style="enable-background:new 0 0 660 123;" xml:space="preserve"> <style type="text/css"> .st0{fill:#8F0000;} </style> <polygon id="XMLID_100_" class="st0" points="124,29 124,94 195.4,94 204,70 148,70 148,29 "/> <rect id="XMLID_115_" x="70" y="0" class="st0" width="30" height="94"/> <rect id="XMLID_284_" x="0" y="0" class="st0" width="65" height="24"/> <rect id="XMLID_285_" x="0" y="29" class="st0" width="65" height="65"/> <rect id="XMLID_286_" x="0" y="113" class="st0" width="660" height="10"/> <path id="XMLID_287_" class="st0" d="M124,24h80l-8.7-24L136,0c-6.6,0-12,5.4-12,12V24z"/> <path id="XMLID_288_" class="st0" d="M212,0v82c0,6.6,5.4,12,12,12h68V0h-24v70h-32V0H212z"/> <path id="XMLID_290_" class="st0" d="M396,24h79.3V12c0-6.6-5.4-12-12-12L408,0c-6.6,0-12,5.4-12,12V24z"/> <path id="XMLID_291_" class="st0" d="M396,29v53c0,6.6,5.4,12,12,12h55.4c6.6,0,11.9-5.3,12-11.9L476,29h-24.5v41h-31.7V29H396z"/> <path id="XMLID_292_" class="st0" d="M500,0l59.3,0l8.7,24h-80V12C488,5.4,493.4,0,500,0z"/> <path id="XMLID_293_" class="st0" d="M580,24h80l-8.7-24L592,0c-6.6,0-12,5.4-12,12V24z"/> <path id="XMLID_294_" class="st0" d="M580,29h35l41.1,37.4c2.5,2.3,3.9,5.5,3.9,8.9V82c0,6.6-5.4,12-12,12h-68V70h45L580,29z"/> <path id="XMLID_296_" class="st0" d="M488,29h35l41.1,37.4c2.5,2.3,3.9,5.5,3.9,8.9V82c0,6.6-5.4,12-12,12h-68V70h45L488,29z"/> <g id="XMLID_297_"> <path id="XMLID_300_" class="st0" d="M372,34V12c0-6.6-5.4-12-12-12h-56v24h44v11h-20v-6h-24v65h68c6.6,0,12-5.4,12-12V53.2 c0-2.7-0.9-5.4-2.6-7.5L372,34z M360,70h-32V55h24.8l7.2,9V70z"/> </g> </svg>
+		</div>
+		
+		<div id="menyKnapp" class="menyClosed">
+			<svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 28.617 28.617" style="enable-background:new 0 0 28.617 28.617;" xml:space="preserve"> <g> <rect x="0" y="1.645" width="28.617" height="6.402"/> <rect x="0" y="11.247" width="28.617" height="6.398"/> <rect x="0" y="20.572" width="28.617" height="6.4"/> </svg> 
+		</div>
+		
+		<div id="topMeny">
+			<div id="helpBtn">Hjälp</div><!--
+			--><div>|</div><!--
+			--><div id="funcBtn">Funktioner</div><!--
+			--><div>|</div><!--
+			--><div id="optionsBtn">Inställningar</div><!--
+			-->
+		</div>
+	</div>
+	
+	<div id="middlerBase">
+		<div id="middler" class="middler">
+			<div id="middle">
+				<div id="blandning"></div>
+				<div id="timer">00:00,000</div>
+				<div id="snabbKnappar">
+					<div id="snabbAvg">
+						<div id="snabbBest"><div>Bästa:</div><div>--:--,---</div></div>
+						<div id="snabb35"><div>3 av 5:</div><div>--:--,---</div></div>
+						<div id="snabb1012"><div>10 av 12:</div><div>--:--,---</div></div>
+					</div>
+					
+					<div id="snabbPenalty">
+						<div id="snabbNo" class="button">Inget Tillägg</div>
+						<div id="snabb2" class="button">+2</div>
+						<div id="snabbDNF" class="button">DNF</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div id="middler2" class="middler">
+			<div id="left">
+				<div id="leftUp">
+					<div id="curPuzzle"></div>
+					<select></select>
+				</div>
+				
+				<div id="average">
+					<div id="avgAntal"><div>Antal:</div><div>0</div></div>
+					<div class="avgSpace">a</div>
+					<div id="avgBest"><div>Bästa:</div><div>--:--,---</div></div>
+					<div id="avgWorst"><div>Sämsta:</div><div>--:--,---</div></div>
+					<div class="avgSpace">a</div>
+					<div id="avg35"><div>3 av 5:</div><div>--:--,---</div></div>
+					<div id="avgBest35"><div>Bästa 3/5:</div><div>--:--,---</div></div>
+					<div class="avgSpace">a</div>
+					<div id="avg1012"><div>10 av 12:</div><div>--:--,---</div></div>
+					<div id="avgBest1012"><div>Bästa 10/12:</div><div>--:--,---</div></div>
+					<div class="avgSpace">a</div>
+					<div id="avgSnitt"><div>Snitt:</div><div>--:--,---</div></div>
+					<div id="avgMean"><div>Snitt mean:</div><div>--:--,---</div></div>
+					<div class="avgSpace">a</div>
+					<div id="avg50"><div>snitt 50:</div><div>--:--,---</div></div>
+					<div id="avg100"><div>snitt 100:</div><div>--:--,---</div></div>
+				</div>
+			</div>
+			
+			<div id="right">
+				<div id="rightUp">
+					<div id="rightUpText">Dina Tider</div>
+					<div class="button" id="clearBtn">Rensa</div>
+				</div>
+				
+				<div id="historyHolder">
+					<div id="history">
+						<div id="historySizing" class="historyItem"></div>
+					</div>
+					
+					<div id="timeShow">
+						<div id="timeShowContent">
+							<div id="buttonContainer">
+								<div class="button" id="timeShowDelete">Ta Bort</div>
+								<div class="button" id="timeShowClose">Stäng</div>
+							</div>
+							
+							<div id="timeShowTime">hej</div>
+							<div id="timeShowBland">hej</div>
+							<div class="erikRadio" name="penalty" value="no"></div> Inget Tillägg<br>
+							<div class="erikRadio" name="penalty" value="+2"></div> +2<br>
+							<div class="erikRadio" name="penalty" value="dnf"></div> DNF<br>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<div id="curtain"></div>
+	
+	<div id="blackW">
+		<div id="blackExit" class="button">
+			<svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 212.982 212.982" style="enable-background:new 0 0 212.982 212.982;" xml:space="preserve"> <g id="Close"> <path style="fill-rule:evenodd;clip-rule:evenodd;" d="M131.804,106.491l75.936-75.936c6.99-6.99,6.99-18.323,0-25.312 c-6.99-6.99-18.322-6.99-25.312,0l-75.937,75.937L30.554,5.242c-6.99-6.99-18.322-6.99-25.312,0c-6.989,6.99-6.989,18.323,0,25.312 l75.937,75.936L5.242,182.427c-6.989,6.99-6.989,18.323,0,25.312c6.99,6.99,18.322,6.99,25.312,0l75.937-75.937l75.937,75.937 c6.989,6.99,18.322,6.99,25.312,0c6.99-6.99,6.99-18.322,0-25.312L131.804,106.491z"/> </g> </svg> 
+		</div>
+		
+		<div id="options">
+			<div class="optTitle">Custom NxN</div>
+			<div class="optRuta" id="optCustom">
+				Lager NxN:<br>
+				<input type="text" name="nxn" value="3"/><br><br>
+			</div>
+			
+			<div class="optTitle">Längd på blandning</div>
+			<div class="optRuta" id="optCustom">
+				Längd: (0 = auto)<br>
+				<input type="text" name="length" value="0"/>
+			</div>
+			
+			<div class="optTitle">Färgtema</div>
+			<div class="optRuta">
+				<select id="skinSelect"></select>
+			</div>
+			
+			<div class="optTitle">Timer</div>
+			<div class="optRuta" id="inspection">
+				<p>Inspektion:</p>
+				<div class="erikCheckbox" id="insInspection"></div>
+				<br>
+				<p>Direkt start:</p>
+				<div class="erikCheckbox" id="insStart"></div>
+			</div>
+			
+			<div class="optTitle">Layout</div>
+			<div class="optRuta" id="layout">
+				Layout:<br>
+				<div class="erikRadio" name="layout" value="layAuto"></div> Auto<br>
+				<div class="erikRadio" name="layout" value="layMobile"></div> Mobile<br>
+				<div class="erikRadio" name="layout" value="layDesktop"></div> Desktop<br>
+				<br>
+				Fixerat antal kolumner för tiderna:
+				<select>
+					<option value="auto">Auto</option>
+					<option value="1">1</option>
+					<option value="2">2</option>
+					<option value="3">3</option>
+				</select>
+				<br><br>
+				Animationer:
+				<div class="erikCheckbox" id="layMobile"></div>
+			</div>
+			
+			<div class="button" id="optSpara">Spara</div>
+		</div>
+		
+		<div id="help">
+			<div class="optTitle">Så fungerar timern</div>
+			<div class="optRuta">
+				<p>Tryck och håll ner mellanslag och vänta tills rutan har blivit grön. När du sedan släpper mellanslag kommer tiden att starta. Tryck på mellanslag igen för att stoppa tiden.</p>
+				<p>Om du vill att tiden ska starta direkt när du trycker på mellanslag så går det att ändra i inställningarna som du finner uppe till höger på sidan.</p>
+			</div>
+			
+			<div class="optTitle">Höger sida</div>
+			<div class="optRuta">
+				<p>På höger sida kommer alla dina tider att listas. För att ta bort eller redigera en tid klickar du på tiden i listan. Då kommer alternativ att dyka upp.</p>
+				<p>För att ta bort alla tider klickar du på rensa uppe till höger.</p>
+			</div>
+			
+			<div class="optTitle">Vänster sida</div>
+			<div class="optRuta">
+				<p>På vänster sida finner du statistik från dina tidigare lösningar (de som listas på högersidan).</p>
+				<p><b>Bästa:</b> Din bästa tid</p>
+				<p><b>Sämsta:</b> Din sämsta tid</p>
+				<p><b>3 av 5:</b> Genomsnitt på dina senaste fem lösningar borträknat den bästa och sämsta tiden av dessa fem.</p>
+				<p><b>Bästa 3/5:</b> Ditt bästa genomsnitt (3 av 5).</p>
+				<p><b>10 av 12:</b> Genomsnitt på de senaste 12 lösningarna borträknat den bästa och sämsta tiden av dessa tolv.</p>
+				<p><b>Bästa 10/12:</b> Ditt bästa genomsnitt (10 av 12).</p>
+				<p><b>Snitt:</b> Genomsnitt på alla dina lösningar borträknat din bästa och sämsta tid.</p>
+				<p><b>Snitt Mean:</b> Genomsnitt på alla dina tider.</p>
+			</div>
+			
+			<div class="optTitle">Grafen på botten</div>
+			<div class="optRuta">
+				<p>En graf på alla dina tider. Håll musen över en prick för att se vilken tid det var och genomsnittet du låg på vid det tillfället. Läs ovan för att se vad 3 av 5 och 10 av 12 betyder.</p>
+			</div>
+			
+			<div class="optTitle">Bokstäverna över tiden (blandningar)</div>
+			<div class="optRuta">
+				<p>Över tiden finner du notationer som du kan använda för att blanda din kub. Varje bokstav är står för ett drag på kuben. 
+				När du har löst kuben och fått en tid kommer det automatiskt att genereras en ny slumpmässig blandning. Detta kan vara bra att använda för att kuben ska bli blandad ordentligt. Det går också att dela med sig av sin blandning för att tävla rättvist med en kompis till exempel.
+				Om du undrar vilken blandning du hade vid en tidigare lösning så kan du klicka på den önskade tiden i listan till höger så kommer blandningen att dyka upp. Klicka på blandningen för att se hela.
+				Detta är de vanliga notationer som används vid riktiga kubtävlingar. För att lära dig notationer kan du klicka <a href="http://">här.</a></p>
+				<p>Om du vill ha blandning till ett annat pussel så kan du välja önskat pussel i listan till vänster. För eget val NxN - se funktioner för att skapa en egen blandning.</p>
+			</div>
+			
+			<div class="optTitle">Knapparna i mitten</div>
+			<div class="optRuta">
+				<p><b>+2:</b> Lägger på 2 sekunder på din tid. Detta görs i officiella kubtävlingar när tiden har stoppats och det är ett drag kvar på kuben.</p>
+				<p><b>DNF:</b> Ogiltig lösning. Om kuben inte var löst när tiden stoppades. (DNF står för "did not finish")</p>
+				<p><b>Inget tillägg:</b> Om du har klickat på +2 eller DNF tidigare så kommer det att rensas.</p>
+				<p>Dessa knappar kommer att påverka den senaste lösningen. Om du vill redigera en tidigare lösning kan du klicka på den önskade tiden i listan till höger.</p>
+			</div>
+			
+			<div class="optTitle">Varför 3 av 5?</div>
+			<div class="optRuta">
+				<p>På officiella kubtävlingar räknar man alltid ut snitt på mellantiderna, alltså borträknat bästa och sämsta tiden. Anledningen till att man gör detta är att man ibland har tur och får en ovanligt bra lösning eller att man ibland har otur och lösningen blir ovanligt dålig. Genom att ta bort den sämsta och bästa tiden och sedan räkna ut ett snitt på mellantiderna ger alltså ett rättvisare genomsnitt.</p>
+				<p>Om du skulle få DNF på en tid kommer den automatiskt att räknas som den sämsta tiden och därmed räknas bort. Om du skulle få två stycken DNF på dina 5 lösningar så kommer hela snittet att räknas som ogiltigt (DNF). 10 av 12 fungerar på samma sätt fast med 12 lösningar.</p>
+			</div>
+		</div>
+		
+		<div id="func">
+			<div class="optTitle">Här kommer en lista på de funktioner som finns</div>
+			<div class="optRuta">
+				<p><b>Byta pussel:</b> Välj i listan till vänster.</p>
+				<p><b>Byta till ett pussel som är större än 7x7:</b> Välj Eget val NxN, sedan går du in i inställningarna och skriver in hur många lager din kub har. I rutan under kan du fylla i antal drag som blandningen ska vara.</p>
+				<p><b>Redigera tid:</b> Tryck på knapparna under tiden. (se hjälp för mer information)</p>
+				<p><b>Redigera en gammal tid:</b> Tryck på tiden i listan till höger.</p>
+				<p><b>Ta bort en tid:</b> Tryck på tiden i listan till höger.</p>
+				<p><b>Se en tidigare blandning:</b> Klicka på den önskade tiden i listan till höger. Sedan kan du klicka på blandningen för att se hela blandningen.</p>
+				<p><b>Dela en tidigare blandning:</b> Följ instuktionen ovan. Sedan håller du in Ctrl och klickar på V samtidigt på ditt skrivbord. Sedan kan du hålla in Ctrl och V för att klistra in på önskat ställe.</p>
+				<p><b>Ta bort alla tider:</b> Klicka på rensa uppe till höger.</p>
+				<p><b>Byta färgtema:</b> Finns under inställningar.</p>
+				<p><b>Inspektion:</b> Välj under inställningar. Inspektion fungerar precis som på en vanlig kubtävling (läs mer längst ner).</p>
+				<p><b>Direkt start:</b> Välj under instälningar. Klickar du i direktstart så behöver du inte längre hålla in mellanslag innan du ska ta en tid.</p>
+				<p><b>Kombinera inspektion och direktstart:</b> Finns under inställningar. Klicka i båda rutorna. </p>
+				<p><b>Byta Layout på sidan:</b> Finns under inställningar (välj mellan mobilversion och desktop version).</p>
+				<p><b>Antal kolumner bland tiderna till höger:</b> Finns under inställningar.</p>
+				<p><b>Stäng av animationer:</b> Finns under inställningar.</p>
+			</div>
+			
+			<div class="optTitle">Hur inspektion fungerar</div>
+			<div class="optRuta">
+				<p>Precis som på en vanlig kubtävling så har du 15 sekunder på dig att inspektera kuben innan du ska lösa den. Klicka på mellanslag för att inspektionstiden ska börja gå. Sedan kan du starta tiden som vanligt när du är redo, hur du gör detta beror på dina inställningar.</p>
+				<p>Med direktstart är det bara att klicka på mellanslag igen för att starta. Om du inte har direktstart ikryssat håller du in mellanslag precis som vanligt och tiden börjar gå när du släpper mellanslag. Tryck sedan på mellanslag igen för att stoppa tiden precis som vanligt.</p>
+				<p>Om du startar tiden efter att dina 15 sekunder har gått så kommer det automatiskt att läggas på +2 sekunder på din lösning. Om det har gått 17 sekunder eller mer under din inspektion så kommer tiden automatiskt att bli DNF. Dessa regler fungerar likadant på en officiell kubtävling. </p>
+			</div>
+		</div>
+		
+	</div>
+	
+	<div id="footer">
+		<div id="canvasHolder">
+			<canvas id="timeCanvas"></canvas>
+		</div>
+	</div>
+	
+	<div id="footFooter">
+		<div>Vi använder cookies. Genom att använda cuboss.se accepterar du att cookies sparas i din webbläsare.</div>
+		<a target="_blank" href="http://www.pts.se/sv/Bransch/Regler/Lagar/Lag-om-elektronisk-kommunikation/Cookies-kakor/">Läs mer här</a> <!--Läs mer om cookies här-->
+	</div>
+
+</body>
+</html>
