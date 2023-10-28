@@ -1,0 +1,3 @@
+Jag använder två libraries: JLayer för några ljud och zip4j för att hantera zip-filer. 
+Det går inte att köra utan (för då finns det ingenting som extraherar zip-filen och då kan inte några skina hittas) då du
+måste köra programmet från .jar:en. 

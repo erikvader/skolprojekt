@@ -1,0 +1,14 @@
+restart: 82
+width: 20
+timerStart: 3600
+skin: genitals
+exit: 27
+up: 38
+pause: 80
+height: 20
+timerEnd: 3600
+timerStep: 30
+left: 37
+down: 40
+solidWalls: false
+right: 39

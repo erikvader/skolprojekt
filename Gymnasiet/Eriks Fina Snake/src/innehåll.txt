@@ -1,0 +1,12 @@
+Jag har lyckats gjort ett snake-spel med en orm som rör på sig. Jag har kommit så långt som det stod i intruktions-pdf:en och lite till.
+innehåll:
+en meny med inställningar av alla slag
+highscore som sparar de 10 bästa tiderna för varje inställning som man har kört med. 
+Man kan ändra teman som ändrar utséende och ljud. listan med teman växer dynamiskt. 
+Det finns en restart-knapp (r), pausknapp (p) och en exit-knapp (esc).
+Det finns också bot:ar. om man klickar shift+0 tar man bort bot:en. Shift+1 funkar bara på banor med ett jämnt antal rutor åt båda hållen. Den låter ormen köra runt i en förbestämd bana om och om igen. shift+2 är en bot som försöker hitta den kortase vägen till sitt mål. Det är en BFS som testar alla möjliga drag, och därför funkar den bara på små banor som 10x10.
+spelplanen scale:ar när man ändrar storlek på fönstret. 
+timerStart är starthastigheten, step är hur mycket den ökar per äpple och end är det maximala. siffrorna är i enheten steg/minut. Jag gjorde detta för att försöka få hastigheten att öka linjärt, jag tror att jag har lyckats.  
+
+
+Jag har samlat allting som har med själva mekaniken av spelet överst i game.java, då slipper du leta genom massor med saker som har med inställningar och grejer att göra. 
