@@ -1,0 +1,43 @@
+#hejsan .ErHeader{
+    width: 100%;
+    position: relative;
+    text-align: right;
+    /*text-align: left;*/
+ 
+    
+}
+
+    #hejsan .ErHeader p{
+        display: inline-block;
+        font-size: 20px;
+    }
+
+#hejsan .ErOpen{
+    font-weight: 600;
+}
+
+#hejsan .ErBody{
+    width: 100%;
+    
+}
+
+#hejsan .ErDiv{
+    width: 100%;
+    position: relative;
+    text-align: right;
+    /*text-align: left;*/
+}
+
+    #hejsan .ErDiv p{
+        display: inline-block;
+        font-size: 15px;
+    }
+
+#hejsan{
+    background: #6FA2FF;
+}
+
+#hejsan p{
+    padding-right: 5px;
+    /*padding-left: 5px;*/
+}

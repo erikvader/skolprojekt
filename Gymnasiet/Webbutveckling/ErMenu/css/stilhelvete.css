@@ -1,0 +1,339 @@
+body, html{
+    width: 100%;
+    height: 100%;
+    font-family: "Arial";
+}
+
+*{
+	margin: 0;
+	padding: 0;
+}
+
+a{
+	outline: none;
+}
+
+img{
+	border: none;
+}
+
+#background{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: white;
+    z-index: 1;
+    
+}
+
+    #background svg{
+        width: 100%;
+        height: 100%;
+    }
+
+.flag{
+    width: 50px;
+    height: 40px;
+    
+}
+
+#languageSelect{
+    position: fixed;
+    right: 10px;
+    top: 10px;
+    
+}
+
+@media screen and (orientation:landscape){
+
+    #logga{
+        height: 60vh;
+        width: 60vw;
+        display: block;
+        margin: auto;
+        margin-top: 20vh;
+        
+        
+    }
+}
+
+@media screen and (orientation:portrait){
+
+    #logga{
+        height: 40vh;
+        width: 80vw;
+        display: block;
+        margin: auto;
+        margin-top: 30vh;
+        
+        
+    }
+}
+
+#theSlash{
+    position: absolute;
+    right: 28vw;
+    top: 42vh;
+    font-size: 8vw;
+    
+}
+
+#scrolltext{
+    
+}
+
+#overlay{
+    margin-top: 100vh;
+    width: 100%;
+    min-height: calc(100vh - 400px);
+    padding-bottom: 400px;
+    background-color: #F2F2F0;
+    z-index: 2;
+    position: absolute;
+    box-shadow: 0px 0px 20px #000000;
+    font-family: verdana;
+    
+}
+
+.centered{
+    margin: auto;
+    width: 934px;
+    
+}
+
+#menyDiv{
+    position: absolute;
+    width: 180px;
+    top: 20px;
+    left: 5px;
+    z-index: 3;
+}
+
+#minimize{
+    width: 100%;
+    padding-top: 3px;
+    background: black;
+    text-align: center;
+    color: white;
+}
+
+#arrow{
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    top: 50px;
+    left: 300px;
+    
+}
+
+    #arrow img{
+        width: 100%;
+        height: 100%;
+    }
+
+#arrowText{
+    position: absolute;
+    top: 100px;
+    left: 475px;
+    font-size: 40px;
+    
+}
+
+pre{
+    /*background: #555A5E;
+    color: white;*/
+    border: 5px ridge #32373B;
+    width: 80%;
+    margin: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 5px;
+    
+}
+
+.kodera{
+    background: lightgray;
+}
+
+#testPic{
+    border: 3px solid blue;
+    padding: 3px;
+    margin-top: 5px;
+    margin-left: 15px;
+}
+
+.fakeLink{
+    color: blue;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+/*home*/
+#homeContent{
+    width: 100%;
+    margin-top: 350px;
+    
+}
+
+/*download*/
+#centeredUL{
+    margin-left: 70px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+#menyCentered{
+    /*margin: 0px auto 0 auto;*/
+    position: absolute;
+    top: 720px;
+    right: 500px;
+    width: 300px;
+    border: 3px solid red;
+    padding: 10px;
+}
+
+#downloadContent{
+    width: 100%;
+}
+
+#downMeny{
+    width: 100%;
+    margin-top: 30px;
+}
+
+#downMeny tr td{
+    width: 25%;
+    height: 50px;
+    text-align: center;
+    border: 3px solid blue;
+    background: rgba(255, 255, 0, 0.6);
+    position: relative;
+}
+
+#downMeny tr td:hover{
+    background: rgba(171, 171, 0, 0.6);
+}
+
+#downMeny tr td div{
+    -ms-transform: rotate(25deg); /* IE 9 */
+    -webkit-transform: rotate(25deg); /* Chrome, Safari, Opera */
+    transform: rotate(25deg);
+}
+
+#downCore{
+    text-decoration: none;
+    color: black;
+    display: block;
+    margin: auto;
+    width: 350px;
+    height: 40px;
+    margin-bottom: 40px;
+}
+
+#downCore div{
+    background: blue;
+    height: 100%;
+    width: 100%;
+    border: 3px solid black;
+    border-radius: 6px;
+    padding-top: 10px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.btn1{
+    position: absolute;
+    left: 3px;
+    bottom: 15px;
+}
+
+.btn2{
+    position: absolute;
+    right: 3px;
+    bottom: 15px;
+}
+
+/*ErDocs*/
+#erDocsTable{
+    width: 100%;
+    border: 3px solid black;
+    margin: 50px;
+}
+
+#erDocsTable tr:first-child{
+    background: blue;
+    font-weight: bold;
+}
+
+#erDocsTable tr td:first-child{
+    width: 35%;
+}
+
+#erDocsTable td{
+    padding: 3px;
+}
+
+#erDocsTable tr:nth-child(2n+3){
+    background: cyan;
+}
+
+#fler{
+    margin: 50px;
+    width: 100%;
+}
+
+#fler div{
+    margin-bottom: 25px;
+    border: 4px solid blue;
+    padding: 3px 3px 10px 5px;
+}
+
+#fler div p:first-child{
+    background: #00B5A3;
+    padding: 5px;
+    margin-bottom: 3px;
+}
+
+/*structure*/
+#structureContent{
+    width: 100%;
+    margin-top: 20px;
+}
+
+#structureContent h1{
+    margin-bottom: 20px;
+}
+
+#structureContent ul{
+    margin-left: 30px;
+}
+
+#structureLeft{
+    width: 50%;
+    float: left;
+    
+}
+
+#structureRight{
+    width: 50%;
+    float: right;
+}
+
+#structureBottom{
+    width: 100%;
+    float: left;
+    margin-top: 40px;
+}
+
+/*
+#structurePre{
+    width: 80%;
+    margin-top: 40px;
+}
+*/
+
+
+
+

@@ -1,0 +1,168 @@
+
+*{
+	margin: 0;
+	padding: 0;
+}
+
+html,body{
+	font-family: helvetica;
+    font-size: 20px;
+	height: 100%;
+    background: url(../img/bar.jpg) no-repeat center center fixed;
+    background-size: cover;
+    user-select: none;
+}
+ 
+@media screen and (max-width: 1024px) {
+    body{
+        font-size: 20px;
+    }
+
+}
+	#layout{
+		width: 50%;
+		margin: auto;
+        height: 100%;
+        text-align: center;
+        background: url(../img/plank.jpg) no-repeat center center fixed;
+        background-size: 30% 100%;
+	}
+
+        /*img{
+            
+            z-index: 1;
+            position: absolute;
+            left: calc(50% - 30% / 2);
+            width: 30%;
+            height: 100%;
+            top: 0;
+        }*/
+
+        #layout figure{
+            z-index: 2;
+            position: relative;
+        }
+	
+	#sidan{
+        width: 100%;
+		padding: 10px;
+		/*background: url(img/griffel.jpg);*/
+        z-index: 3;
+        position: relative;
+        text-align: center;
+        margin-left: 0px;
+        color: white;
+	}
+
+    #infoRuta{
+        text-align: left;
+        background: black;
+        display: none;
+    }
+
+        #infoRuta table tr td img{
+            width: 100%;
+            
+        }
+
+        #infoRuta table tr td{
+            width: 50%;
+        }
+
+        #debugBtn{
+            display: block;
+            margin: auto;
+        }
+
+        #infoRuta h2{
+            color: red;
+        }
+
+    #options501{
+        text-align: center;
+        background: black;
+        display: none;
+    }
+
+    #debug{
+        text-align: center;
+        background: black;
+        display: none;
+    }
+
+        #debug table{
+            width: 100%;
+        }
+
+        #debug table tr td{
+            min-width: 20%;
+            max-width: 20%;
+        }
+
+        #debug table tr td input{
+            width: 90%;
+        }
+
+        #modeSelect{
+            display: inline;
+            
+        }
+
+            button{
+                font-size: 100%;
+                padding: 0.5%;
+                border-radius: 10px;
+                border: 3px solid;
+                background: black;
+                color: white;
+                
+            }
+
+            button:hover{
+                background: white;
+                color: black;
+                cursor: pointer;
+            }
+
+        .spelare{
+            display: inline-block;
+            background-color: rgba(0, 0, 0, 0.3); 
+            margin-right: 2%;
+            margin-bottom: 1%;
+            color: white;
+        }
+	
+		.playerName{
+			font-weight: 700;
+		}
+		.score{
+			
+		}
+		#fel{
+			font-weight: 700;
+			color: #f00;
+			font-size: 20px;
+			border: solid 1px #000;
+			border-radius: 4px;
+			width: 25px;
+			margin-left: 20px;
+		}
+		
+	figure{
+		margin: auto;
+		text-align: center;
+		height: 80%;
+	}
+
+    #footer{
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        background: black;
+        z-index: 3;
+        color: white;
+        text-align: center;
+    }
+
+    
+	

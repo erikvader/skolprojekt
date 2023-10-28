@@ -1,0 +1,1 @@
+<p>Find the tall sezy guy with long hair and report the bug to him. He is usually at the top floor at Grillska Gymnasiet Uppsala or at home.</p>

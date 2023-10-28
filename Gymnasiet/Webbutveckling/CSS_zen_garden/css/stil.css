@@ -1,0 +1,358 @@
+@keyframes supporting-border{
+	0% {border-left-color: blue; border-right-color: blue}
+	100% {border-left-color: yellow; border-right-color: yellow}
+}
+
+@keyframes preamble-border{
+	0% {border-left-color: blue; border-right-color: blue; border-top-color: blue}
+	100% {border-left-color: yellow; border-right-color: yellow; border-top-color: yellow}
+}
+
+@keyframes dalaHorse{
+	0% {transform:translateX(0px) rotate(0deg);}
+	100% {transform:translateX(750px) rotate(360deg);}
+}
+
+*{
+	margin: 0;
+	padding: 0;
+}
+
+img{
+	border: none;
+}
+
+a{
+	text-decoration: none;
+}
+
+p{
+	/*font-family: eriksFont;
+	font-size: 20px;*/
+}
+
+body,html{
+	background: url("../img/background.jpg") no-repeat fixed;
+	background-size: cover;
+	height: 100%;
+	
+}
+
+h3{
+	text-align: center;
+	margin-bottom: 4px;
+}
+
+ul{
+	list-style-type: none;
+}
+
+.page-wrapper{
+	width: 800px;
+	margin: auto;
+	overflow-x: hidden;
+	position: relative;
+}
+
+	#zen-intro{
+		background: none;
+		width: 81.25%;
+		float: left;
+		padding: 10px 10px 0px 10px;
+		margin-left: 0px;
+	}
+
+		header{
+			float: left;
+			width: calc(48% - 5px);
+			background: yellow;
+			padding: 20px 0 18px 2%;
+			border-top-left-radius: 10px;
+			border: 5px solid blue;
+			border-right: none;
+		}
+
+		#zen-summary{
+			background: yellow;
+			float: left;
+			width: calc(48% - 5px);
+			padding: 10px 2% 10px 0;
+			text-align: justify;
+			border-top-right-radius: 10px; 
+			border: 5px solid blue;
+			border-left: none;
+		}
+		
+			#zen-summary a{
+				padding: 2px;
+				background: blue;
+				color: white;
+				border-radius: 5px;
+			}
+			
+			#zen-summary a:hover{
+				background: white;
+				color: blue;
+			}
+
+		#zen-preamble{
+			float: left;
+			width: calc(123% - 20px + 0.5px); /*123% ger en halv pixel för lite*/
+			margin-top: 40px;
+			margin-left: -10px;
+			background-color: yellow;
+			border-top-left-radius: 10px;
+			border-top-right-radius: 10px;
+			border: 5px solid blue;
+			border-bottom: 1px solid black;
+			padding: 5px 5px 15px 5px;
+		}
+			#zen-preamble:hover{
+				background-image: url(../img/flagga.png);
+				background-repeat: no-repeat;
+				background-size: 100% 100%;
+				animation: preamble-border 1s linear 0s infinite alternate;
+			}		
+		
+	#zen-supporting{
+		float: left;
+		width: 100%;
+		
+	}
+
+		#zen-explanation, #zen-participation,
+		#zen-benefits, #zen-requirements{
+			float: left;
+			width: calc(100% - 20px);
+			background-color: yellow;
+			background-image: none;
+			border: 5px solid blue;
+			border-bottom: 1px solid black;
+			border-top: 1px solid black;
+			padding: 15px 5px 25px 5px;
+		}
+		
+			#zen-explanation:hover, #zen-participation:hover,
+			#zen-benefits:hover, #zen-requirements:hover{
+				background-image: url(../img/flagga.png);
+				background-repeat: no-repeat;
+				background-size: 100% 100%;
+				animation: supporting-border 1s linear 0s infinite alternate;
+			}
+
+		footer{
+			float: left;
+			width: calc(100% - 10px);
+			height: 40px;
+			background: yellow;
+			border: 5px solid blue;
+			border-top: 1px solid black;
+			border-bottom-left-radius: 10px;
+			border-bottom-right-radius: 10px;
+			padding: 5px 0 5px 0;
+			position: relative;
+		}
+			
+			footer a{
+				display: block;
+				color: transparent;
+				width: 40px;
+				height: 30px;
+				float: left;
+				position: absolute;
+				left: 0;
+				top: 10px;
+			}
+			
+			footer a{
+				background-image: url(../img/dala_horse.png);
+				background-repeat: no-repeat;
+				background-size: 100% 100%;
+				background-position: 0 0;
+			}
+			
+			footer a:nth-child(1){
+				animation: dalaHorse 5s linear 0s infinite alternate;
+			}
+			
+			footer a:nth-child(2){
+				animation: dalaHorse 5s linear 0s infinite alternate-reverse;
+			}
+			
+			footer a:nth-child(3){
+				animation: dalaHorse 5s linear 1s infinite alternate;
+			}
+			
+			footer a:nth-child(4){
+				animation: dalaHorse 5s linear 1s infinite alternate-reverse;
+			}
+			
+			footer a:nth-child(5){
+				animation: dalaHorse 5s linear 2s infinite alternate;
+			}
+
+	aside{
+		width: calc(15% - 10px);
+		position: absolute;
+		top: 0;
+		right: 0;
+		float: left;
+		margin-top: -50px;			
+		padding-bottom: 20%;
+		background-color: yellow;
+		background-image: url("../img/arrow2.png");
+		background-repeat: no-repeat;
+		background-position: 50% 99%;
+		
+		border-bottom-left-radius: 10px;
+		border-bottom-right-radius: 10px;
+		
+		border: 5px solid blue;
+		border-top: none;
+		
+		transition: margin-top 1s ease-out, width 1s ease-out 1s;
+	}
+	
+		aside .wrapper{
+			visibility: hidden;
+			height: 0;
+			overflow: hidden;
+			
+			transition: height 1s ease-out 1s, visibility 0s linear;	
+		}
+		
+		aside:hover .wrapper{
+			visibility: initial;
+			height: 450px;
+			transition: height 1s ease-out 1s, visibility 0s linear 2s;
+		}
+	
+		aside:hover{
+			height: auto;
+			margin-top: 0px;
+			width: calc(100% - 10px);
+		}
+
+		#design-selection{
+			float: left;
+			width: 35%;			
+			padding-left: 15%;
+			padding-top: 5%;
+			padding-bottom: 10px;
+			border-right: 3px solid blue;
+			border-bottom: 3px solid blue;
+		}
+		
+			#design-selection h3{
+				text-align: initial;
+			}
+		
+			#design-selection a:nth-child(1){
+				display: block;
+				width: 100%;
+			}
+			
+			#design-selection a:nth-child(2){
+				display: inline-block;
+				width: 90%;
+			}
+			
+			#design-selection li{
+				margin-bottom: 10px;
+			}
+
+		#design-archives{
+			padding-top: 5%;
+			float: left;
+			width: calc(50% - 3px);
+			text-align: center;
+			height: 44.8%;
+		}
+
+		#zen-resources{
+			margin-top: 0;
+			height: 45%;
+			float: left;
+			width: calc(50% - 3px);
+			text-align: center;
+			border-bottom: 3px solid blue;
+		}
+		
+.extra1{
+	width: 400px; /*468 X 720*/
+	height: 615.3px;
+	position: fixed;
+	top: 0;
+	left: -500px;
+	background-image: url(../img/extra1.jpg);
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+	z-index: 2;
+	
+	transform: rotate(30deg);
+	transition: left 3s ease-out, transform 3s ease-out;
+}
+
+	.extra1:hover{
+		left: -100px;
+		transform: rotate(20deg);
+	}
+		
+.extra2{
+	width: 400px; /*400 X 600*/
+	height: 600px;
+	position: fixed;
+	bottom: -300px;
+	left: -490px;
+	background-image: url(../img/extra2.jpg);
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+	
+	transform: rotate(30deg);
+	transition: left 3s ease-out, bottom 3s ease-out, transform 3s ease-out;
+}
+
+	.extra2:hover{
+		left: 20px;
+		bottom: -100px;
+		transform: rotate(10deg);
+	}		
+		
+.extra3{
+	width: 400px; /*236 X 355*/
+	height: 601.7px;
+	position: fixed;
+	top: -620px;
+	right: 0px;
+	background-image: url(../img/extra3.jpg);
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+	
+	transform: rotate(-30deg);
+	transition: top 3s ease-out, transform 3s ease-out;
+}
+
+	.extra3:hover{
+		top: -10px;
+		transform: rotate(-10deg);
+	}			
+		
+.extra4{
+	width: 400px; /*280 X 421*/
+	height: 601.4px;
+	position: fixed;
+	bottom: -460px;
+	right: -100px;
+	background-image: url(../img/extra4.jpg);
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+	
+	transform: rotate(-30deg) scale(0.6);
+	transition: right 3s ease-out, bottom 3s ease-out, transform 3s ease-out;
+}
+
+	.extra4:hover{
+		bottom: -10px;
+		right: -20px;
+		transform: rotate(-10deg) scale(1);
+	}			

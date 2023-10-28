@@ -1,0 +1,46 @@
+﻿
+
+*{
+	margin: 0;
+	padding: 0;
+}
+
+a{
+	outline: none;
+}
+
+img{
+	border: none;
+}
+
+	#layout{
+		width: 1000px;
+		margin: 10px auto 0 auto;
+	}
+	
+		#header{
+			background: purple;
+			height: 120px;
+		}
+		
+		#menu{
+			background: pink;
+			height: 40px;
+		}
+		
+			#menu ul li{
+				display: inline;
+				
+			}
+		
+		#main{
+			background: red;
+			height: 321px;
+		}
+		
+		#footer{
+			background: green;
+			height: 40px;
+		}
+
+	

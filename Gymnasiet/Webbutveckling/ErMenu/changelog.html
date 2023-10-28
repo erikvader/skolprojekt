@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>ErMenu Changelog</title>
+    <link rel="shortcut icon" href="img/favicon.png" type="image/x-icon">
+    <link rel="icon" href="img/favicon.png" type="image/x-icon">
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        html, body{
+            margin: 10px 10px;
+        }
+        .inlagg{
+            margin-bottom: 30px;
+        }
+    </style>
+</head>
+<body>
+    <div class=inlagg>
+        <h1>10/4-15</h1>
+        <p>Idag har jag börjat på structure. Jag ska göra färdigt det hemma och så ska jag göra så att man kan ändra språk. Jag kommer inte att hinna lägga till "skicka in en bugg" och en tutorial-sida. </p>
+    </div>
+    <div class=inlagg>
+        <h1>27/3-15</h1>
+        <p>Idag har jag fixat nästan hela ErDocs. Man kan trycka på funktionerna och scrollas ner till mer info om funktionen. Någonting som jag ska fixa är 
+        att rövarspråket inte funkar på table-grejen i början, än. </p>
+    </div>
+    
+    <div class=inlagg>
+        <h1>20/3-15</h1>
+        <p>Idag har jag gjort färdigt rövarspråket funkar. Jag har också börjat lite på ErDocs. </p>
+    </div>
+    
+    <div class=inlagg>
+        <h1>17/3-15</h1>
+        <p>idag har jag fixat så man inte behöver lägga till div- och p-taggar när man ska göra trädet för sin meny. Jag har också
+        gjort färdigt downloads-sidan. Nedladdnings-knappar till allt, lite instruktioner och snygga GIF-bilder som visar hur effekterna ser ut. </p>
+    </div>
+    
+    <div class="inlagg">
+        <h1>13/3-15</h1>
+        <p>Idag har jag fixat en liten grej som jag hade skrivit fel på första sidan. Jag har också gjort så att man kan
+        ändra teman live på download-sidan. Att menyn expanderar har jag inte fixat än, men jag ska fixa det ikäll eller
+        imorgon. Jag hade halvägssamtal med Jonas och det gick bra.  </p>
+    </div>
+    
+    <div class="inlagg">
+        <h1>10/3-15</h1>
+        <p>Idag har jag börjat lite på downloads-sidan. Jag hade lite problem för att mitt plugin
+         dumt nog inte hade testats för om det fanns flera menyer på samma sida. Men efter en ganska
+         lång stund av fixande så funkar det i alla fall för tillfället. Nu har jag ett problem då 
+        menyn expanderas så skjuts allt annat under den iväg. Det ska jag titta lite närmare på senare, 
+        men nu är det ganska sent. </p>
+    </div>
+    
+    <div class="inlagg">
+        <h1>6/3-15</h1>
+        <p>Idag på lektionen har jag inte hunnit med någonting, Aurora och Embla ville ha hjälp och rätt så mycket
+        alla andra i klassen också. Jag har dock fixat en bugg med ändra-undersido-grejen och så att "option"-länkarna
+        kommer att länka till rätt ställe.</p>
+    </div>
+    
+    <div class="inlagg">
+        <h1>27/2-15</h1>
+        <p>Idag har jag fixat färdigt första sidan! Jag fick råd om att min tipsruta såg ut som spam
+        , så jag ändrade den genom att lägga till en idé-lampa istället för en varningsskylt och tog bort den röda.
+        Jag har också fixat googles code prettyfier så att mina tutorials ser bättre ut. Jag har också
+        lyckats göra javascript-funktioner som ändrar variablerna i URL:en. Jag vill ju att när jag
+        t.ex klickar på pirat-knappen så ska bara en variabel ändras och resten vara likadana. Så då måste jag
+        först få alla som finns och sen ändra den som jag ska öndra på. Med hjälp av internet lyckades jag
+        göra sådana funktioner. En heter "changeUrl" och tar emot "key"- och "value"-parametrar. 
+        Den ändrar variabeln om den finns eller lägger till den om den inte gör det. Med det 
+        jobbiga över så är det bara att fortsätta på sidan nästa gång.</p>
+    </div>
+    
+    <div class="inlagg">
+        <h1>14/2-15 (2)</h1>
+        <p>Jag stötte på ett lite roligt problem idag. Av någon anledning så gjorde inte sidan det jag ville, så jag inspekterade och såg
+        att allting hamnade under en div, jag hade grejer utanför den div:en men de hamnade innanför den andra ändå. så jag provade att de bort 
+        olika grejer för att kolla vad som var fel, och när jag tog bort en helt annan div så funkade allting. Jag märkte att den div:en inte stängdes, 
+        den hade inget snedstreck, och det buggade upp allting på min sida. Jag tror att jag satt med det här i en timme, en hel timme 
+        slösad på ett litet tecken jag hade glömt. Nu är jag sur och lägger av med det här för idag!</p>
+    </div>
+	
+    <div class="inlagg">
+        <h1>14/2-15</h1>
+        <p>Första inlägget, jag har missat att skriva på flera veckor, men jag ska försöka att sammanfatta allting här.
+            Jag har gjort färdigt själva "core:n" till min meny och ett par teman. Jag har listat ut sätt att få menyn att scrolla runt på sidan som jag vill
+            och ett sätt att andra teman "on the fly" som jag ska använda på nedladdningssidan. Jag har också gjort min stora logga
+            och gjorde den till en SVG. Brackets gillar inte superlånga textrader, men om jag kommentera ut den så slutar allting att bugga (får hitta en lösning senare).
+            Till sist har jag också implementerat någon cool animering som helt körs i CSS3. Jag tyckte att effekten var lite ful (det tog för lång tid för den att övergå från ett steg
+            till det andra), så jag läste genom css:en lite och lyckades lista ut vad det var ajg skulle ändra på för att den skulle bli bättre. Jag lärde mig också att det fanns
+            något som heter "vh" och "vw", mycket användbart då % inte alltid gör det man vill. 
+        </p>
+    </div>
+    
+    
+</body>
+</html>

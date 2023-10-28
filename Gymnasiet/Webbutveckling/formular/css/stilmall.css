@@ -1,0 +1,50 @@
+﻿body, html{
+
+}
+
+*{
+	margin: 0;
+	padding: 0;
+}
+
+a{
+	outline: none;
+}
+
+img{
+	border: none;
+}
+
+#layout{
+	width: 800px;
+	margin: 100px auto 0 auto;
+}
+
+#registration_form textarea{
+	resize: none;
+	width: 200px;
+	height: 300px;
+	padding: 5px;
+}
+
+#registration_form select{
+	width: 250px;
+	padding: 5px;
+}
+
+#registration_form input[type=text],
+#registration_form input[type=password]{
+	width: 240px;
+	padding: 5px;
+}
+
+
+
+
+
+
+
+
+
+
+

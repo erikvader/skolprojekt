@@ -1,0 +1,155 @@
+﻿body, html{
+
+}
+
+*{
+	margin: 0;
+	padding: 0;
+}
+
+a{
+	outline: none;
+}
+
+img{
+	border: none;
+}
+
+	#top{
+		width: 100%;
+		height: 100px;
+		/*margin: auto;*/
+		background: #1209B5;
+	}
+	
+	.layout{
+		width: 1000px;
+		margin: auto;
+	}
+	
+	#header{
+		width: auto;
+		height: 60px;
+		padding: 20px;
+	}
+	
+		#header h1{
+			margin-top: 10px;
+			color: white;
+			float:left;
+			font-size: 50px;
+		}
+		
+	#headerRight{
+		float: right;
+		height: 60px;
+		width: 450px;
+	}
+	
+		#headerRight table{
+			/*width: 100%;*/
+			color: white;
+			float: right;
+		}
+		
+		#headerRight a{
+			color: white;
+		}
+		
+		#headerRight input{
+			box-shadow: 2px 2px 5px #000000;
+		}
+		
+	#loginBtn{
+		margin-left: 10px;
+		margin-right: -10px;
+		background: #6E64DE;
+		border-color: #6E64DE;
+	}
+		
+	#main{
+		background: lightblue;
+		width: 100%;
+		height: 550px;
+	}
+	
+	#left{
+		width: 500px;
+		float: left;
+		margin-top: 50px;
+	}
+	
+		#left span{
+			color: #1209B5;
+			font-size: 30px;
+			font-weight: bold;
+		}
+	
+	#right{
+		width: 390px;
+		float: left;
+		margin-left: 110px;
+		margin-top: 20px;
+	}
+	
+		#right h1{
+			font-size: 40px;
+		}
+		
+		#right p{
+		
+		}
+		
+		#right input{
+			border-radius: 5px;
+			margin-top: 10px;
+			height: 25px;
+			
+		}
+		
+		#right select{
+			float: left;
+			margin-right: 2px;
+			height: 30px;
+		}
+		
+	.toBeHundra{
+		width: 100%;
+	}
+	
+	.toBeHalften{
+		width: calc(50% - 6px);
+	}
+		
+	#valText{
+		font-size: 13px;
+		width: 170px;
+		/*height: 30px;*/
+		float: left;
+		margin-left: 5px;
+	}
+	
+	#accAnvandarvillkor{
+		margin-top: 10px;
+		font-size: 12px;
+		margin-bottom: 20px;
+	}
+	
+	#gaMedBtn{
+		/*padding: 20px 60px;*/
+		padding: 10px 60px 30px 60px;
+		background: lime;
+		border-color: lime;
+		color: white;
+		font-size: 20px;
+		font-weight: bold;
+	}
+	
+	#footer table{
+		width: 800px;
+	}
+	
+	#footer a{
+		text-decoration: none;
+		font-size: 13px;
+	}

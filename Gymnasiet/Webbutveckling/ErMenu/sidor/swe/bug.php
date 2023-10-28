@@ -1,0 +1,1 @@
+<p>Hitta den långa sexiga killen med långt hår och säg buggen till honom. Han är oftast på den översta våningen på Grillska Gymnasiet eller hemma.</p>

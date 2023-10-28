@@ -1,0 +1,62 @@
+#hejsan .ErHeader{
+    width: 100%;
+    position: relative;
+    height: 30px;
+    margin-bottom: 15px;
+    text-align: center;
+    
+     /*Colorzilla*/
+    background: rgb(228,245,252);
+    background: -moz-linear-gradient(top,  rgba(228,245,252,1) 0%, rgba(191,232,249,1) 50%, rgba(159,216,239,1) 51%, rgba(42,176,237,1) 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(228,245,252,1)), color-stop(50%,rgba(191,232,249,1)), color-stop(51%,rgba(159,216,239,1)), color-stop(100%,rgba(42,176,237,1)));
+    background: -webkit-linear-gradient(top,  rgba(228,245,252,1) 0%,rgba(191,232,249,1) 50%,rgba(159,216,239,1) 51%,rgba(42,176,237,1) 100%);
+    background: -o-linear-gradient(top,  rgba(228,245,252,1) 0%,rgba(191,232,249,1) 50%,rgba(159,216,239,1) 51%,rgba(42,176,237,1) 100%);
+    background: -ms-linear-gradient(top,  rgba(228,245,252,1) 0%,rgba(191,232,249,1) 50%,rgba(159,216,239,1) 51%,rgba(42,176,237,1) 100%);
+    background: linear-gradient(to bottom,  rgba(228,245,252,1) 0%,rgba(191,232,249,1) 50%,rgba(159,216,239,1) 51%,rgba(42,176,237,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e4f5fc', endColorstr='#2ab0ed',GradientType=0 );
+
+}
+
+    #hejsan .Eicicle{
+        position: absolute;
+        top: 27px;
+        height: 15px;
+    }
+
+    #hejsan .Efrost{
+        position: absolute;
+    }
+
+    #hejsan .ErHeader p{
+        padding-top: 3px;
+        display: inline-block;
+    }
+
+#hejsan .ErBody{
+    width: 100%;
+}
+
+#hejsan .ErDiv{
+    width: 100%;
+    position: relative;
+    height: 25px;
+    
+    /*Colorzilla*/
+    background: rgb(0,183,234);
+    background: -moz-linear-gradient(top,  rgba(0,183,234,1) 0%, rgba(0,158,195,1) 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(0,183,234,1)), color-stop(100%,rgba(0,158,195,1)));
+    background: -webkit-linear-gradient(top,  rgba(0,183,234,1) 0%,rgba(0,158,195,1) 100%);
+    background: -o-linear-gradient(top,  rgba(0,183,234,1) 0%,rgba(0,158,195,1) 100%);
+    background: -ms-linear-gradient(top,  rgba(0,183,234,1) 0%,rgba(0,158,195,1) 100%);
+    background: linear-gradient(to bottom,  rgba(0,183,234,1) 0%,rgba(0,158,195,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00b7ea', endColorstr='#009ec3',GradientType=0 );
+
+}
+
+    #hejsan .ErDiv p{
+        padding-top: 2px;
+        padding-left: 5px;
+        display: inline-block;
+        
+    }
+

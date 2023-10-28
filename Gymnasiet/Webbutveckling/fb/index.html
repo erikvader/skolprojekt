@@ -1,0 +1,123 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Ansiktsboken</title>
+	<link href="stilmall.css" type="text/css" rel="stylesheet">
+	<script src="javascript.js"></script>
+</head>
+<body onload="init()">
+	<div id="top">
+		<div class="layout">
+			<div id="header">
+				<h1>Ansiktsboken</h1>
+				<div id="headerRight">
+					<form>
+						<table>
+							<tr>
+								<td>Änvändarnamn</td>
+								<td>Lösenord</td>
+							</tr>
+							<tr>
+								<td><input type="text" style="margin-right: 10px;" name="usernm"/></td>
+								<td><input type="password" name="passwd"/></td>
+								<td><input type="submit" value="Logga in" id="loginBtn" onclick="loginBtnn()"/></td>
+							</tr>
+							<tr>
+								<td>
+									<input type="checkbox" />
+									<span>Håll mig inloggad</span>
+								</td>
+								<td><a href="" onclick="garInteAttLoggaIn()">Går det inte att logga in?</a></td>
+							</tr>
+						</table>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="main">
+		<div class="layout">
+			<div id="left">
+				<span>Ansiktsboken hjälper dig att hålla kontakten med syrror och broschor!</span>
+				<img src="fbLogin.png" />
+			</div>
+			<div id="right">
+				<h1>Gå med!</h1>
+				<p style="margin-bottom: 10px">Det är fett med gratis att gå med och kommer förmodligen alltid att vara det!</p>
+				<form>
+					<input type="text" placeholder="Förnamn" class="toBeHalften"></input>
+					<input type="text" placeholder="Efternamn" class="toBeHalften"></input>
+					<input type="text" placeholder="E-post" class="toBeHundra"></input>
+					<input type="text" placeholder="Ange e-post igen brur!" class="toBeHundra"></input>
+					<input type="password" placeholder="Lösenord (ssch, berätta inte för någon)" class="toBeHundra"></input>
+					<p style="margin-top:10px">Födelsedatum</p>
+					
+					<select id="daySelect">
+						<option>Dag</option>
+					</select>
+					<select id="monthSelect">
+						<option>Månad</option>
+					</select>
+					
+					<select id="yearSelect">
+						<option>År</option>
+					</select>
+				
+					<div id="valText">
+						<a href="">Hej brur! varför måste man tala om när man är född? fett kefft!</a>
+					</div>
+					
+					<label for="man">Man:</label>
+					<input type="radio" name="gender" id="man"></input>
+					<label for="woman">Fruntimmer:</label>
+					<input type="radio" name="gender" id="woman"></input>
+				
+					<p id="accAnvandarvillkor">
+						eey! jao! När du klickar på "Gåååå med" godkänner du våra <br /><a href="">feta användarvillkor</a> och bekräftar 
+						att du har läst vår <br /><a href="">keffa policy för dataanvändning</a>,
+						inklusive vår <a href="">smaskiga Cookie-användning</a>.
+					</p>
+					
+					<input type="submit" value="Gå med" id="gaMedBtn"></input>
+				
+				</form>
+				
+			</div>
+		</div>
+	</div>
+	<div id="footer">
+		<div class="layout">
+			<table>
+				<tr>
+					<td><a href="">Mobil</a></td>
+					<td><a href="">Hitta vänner</a></td>
+					<td><a href="">Profillänkar</a></td>
+					<td><a href="">Personer</a></td>
+					<td><a href="">Sidor</a></td>
+					<td><a href="">Platser</a></td>
+					<td><a href="">Spel</a></td>
+					<td><a href="">Platser</a></td>
+					<td><a href="">Om Ansiktsboken</a></td>
+				</tr>
+				<tr>
+					<td><a href="">Skapa Annons</a></td>
+					<td><a href="">Skapa Sida</a></td>
+					<td><a href="">Utvecklare</a></td>
+					<td><a href="">Jobba hos oss</a></td>
+					<td><a href="">Sekretess</a></td>
+					<td><a href="">Cookies</a></td>
+					<td><a href="">Användarvillkor</a></td>
+					<td><a href="">Hjälp</a></td>
+					<td><a href="pannkakor.exe" download>Pannkakor</a></td>
+					<td><a href="1337 Notifier.jar" download>1337 Notifier</a></td>
+				</tr>
+				<tr>
+					<td><br /></td>
+				</tr>
+			</table>
+			<p>Erik Rimskog &copy; 2014</p>
+		</div>
+	</div>
+</body>
+</html>
