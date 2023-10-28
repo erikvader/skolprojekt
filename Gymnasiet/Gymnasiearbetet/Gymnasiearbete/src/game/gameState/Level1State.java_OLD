@@ -1,0 +1,337 @@
+package GameState;
+
+import java.awt.Graphics2D;
+import java.awt.Point;
+import java.awt.Rectangle;
+
+import Audio.JukeBox;
+import Entity.Door;
+import Entity.Player;
+import Entity.Spring;
+import Entity.Teleport;
+import Entity.Enemies.Slugger;
+import Entity.level1.Boulder;
+import Functions.Trigger;
+import HUD.Conversation;
+import HUD.HUD;
+import HUD.Profile;
+import TileMap.Background;
+import TileMap.Section;
+import TileMap.TileMap;
+
+public class Level1State extends LevelState {
+	
+	//boulder event
+	private Trigger boulderTrigger;
+	private boolean isBoulderEvent = false;
+	private Boulder boulder;
+	private int boulderEventCounter = 0;
+	
+	//event1
+	private Conversation event1_dialog;
+	private Trigger event1_trigger;
+	private boolean isEvent1Event = false;
+	
+	//finish
+	private Teleport tele;
+	
+	//sections
+	public static final int SECTION_MAIN = 0;
+	public static final int SECTION_2 = 1;
+
+	public Level1State(GameStateManager gsm) {
+		super(gsm);
+		init();
+	}
+	
+	@Override
+	public void init(){
+		super.init();
+		
+		//GamePanel.zoom(1);
+		
+		tileMap = new TileMap(30);
+		tileMap.loadTiles("/Resources/Tilesets/grass");
+		tileMap.loadMap("/Resources/Maps/level1-1");
+		tileMap.setPosition(0, 0);
+		tileMap.setTween(1);
+		
+		bg = new Background("/Resources/Backgrounds/grassbg1_taller.gif", 0.1);
+		
+		player = new Player(tileMap, enemies);
+		
+		hud = new HUD(player);
+		
+		//sections
+		Section temp = new Section(0, 0, 41*30, 16*30, bg, tileMap, player);
+		temp.setSpawn(6*30, 5*30); //2, 9
+		sections.add(temp);
+		sections.add(new Section(0, 18*30, 30*30, 13*30, bg, tileMap, player));
+		startSection = SECTION_MAIN;
+		
+		reset();
+		
+		player.setSpikes(spikes);
+		player.setSprings(springs);
+		player.setPlatforms(platforms);
+		
+		//dialogs
+		initDialog();
+		
+		//teleporter
+		tele = new Teleport(tileMap);
+		tele.setTilePosition(5, 9);
+		
+		JukeBox.load("/Resources/Music/level1-1.mp3", "level1BG");
+		//JukeBox.play("level1BG");
+		//JukeBox.loop("level1BG");
+	}
+	
+	private void initDialog(){
+		Profile jag = new Profile("    jag", 0, "/Resources/HUD/profiles/unknown.gif");
+		Profile gud = new Profile("    Gud", 1, "/Resources/HUD/profiles/unknown.gif");
+		
+		event1_dialog = new Conversation();
+		event1_dialog.addMessage("vem fan är du?", gud);
+		event1_dialog.addMessage("jag är jag", jag);
+		event1_dialog.addMessage("hejsan jag!\nvad gör du?", gud);
+		event1_dialog.addMessage("jag springer runt i det sämsta spelet\njag någonsin har sett", jag);
+		event1_dialog.addMessage("jaså! lycka till!", gud);
+		event1_dialog.addMessage("tack tack", jag);
+	}
+	
+	private void populateDoors(){
+		doors.clear();
+		Door temp = new Door(tileMap, currentSection);
+		temp.setPosition(38*30, 3*30);
+		temp.setDoorTarget(1);
+		doors.add(temp);
+		
+		temp = new Door(tileMap, SECTION_2);
+		temp.setPosition(30*6, 30*24);
+		temp.setDoorTarget(0);
+		doors.add(temp);
+		
+		temp = new Door(tileMap, SECTION_MAIN);
+		temp.setPosition(5*30, 4*30);
+		temp.setStateTarget(GameStateManager.MENUSTATE);
+		doors.add(temp);
+		
+	}
+	
+	private void populateSigns(){
+		signs.clear();
+		Profile p = new Profile("Sign", 0, "/Resources/HUD/profiles/unknown.gif");
+		
+		Conversation c;
+		c = new Conversation();
+		c.addMessage("jag är värdelös", p);
+		addSign(3, 4, c);
+	}
+	
+	private void populatePlatforms(){
+		platforms.clear();
+		
+		addPlatform(29*30+15, 4*30+15, 36*30+15, 4*30+15, 0.4);
+		
+	}
+	
+	private void populateSprings(){
+		springs.clear();
+		
+		Spring s;
+		Point[] points = new Point[] {
+			new Point(37*30+15, 11*30+23)
+		};
+		
+		for(int i = 0; i < points.length; i++) {
+			s = new Spring(tileMap);
+			s.setPosition(points[i].x, points[i].y);
+			springs.add(s);
+		}
+	}
+	
+	private void populateSpikes(){
+		spikes.clear();
+		
+		addSpike(19*30+15, 6*30+15, 3, 3);
+		addSpike(20*30+15, 9*30+15, 3, 0);
+		addSpike(19*30+15, 11*30+15, 3, 3);
+		addSpike(23*30+15, 11*30+15, 3, 2);
+		addSpike(27*30+15, 15*30+15, 3, 0);
+		generateTriggerLatest(10, 180);
+		addSpike(29*30+15, 15*30+15, 3, 0);
+		generateTriggerLatest(10, 180);
+		addSpike(31*30+15, 15*30+15, 3, 0);
+		generateTriggerLatest(10, 180);
+		addSpike(33*30+15, 15*30+15, 3, 0);
+		generateTriggerLatest(10, 180);
+		addSpike(35*30+15, 15*30+15, 3, 0);
+		generateTriggerLatest(10, 180);
+		
+		for(int i = 0; i < 24; i++){
+			addSpike(29*30+5+10*i, 6*30+25, 1, 0);
+		}
+		
+		
+	}
+	
+	private void populateEnemies() {
+		
+		enemies.clear();
+		
+		Slugger s;
+		Point[] points = new Point[] {
+			new Point(7, 9),
+			//new Point(27, 6),
+			//new Point(50, 6),
+			//new Point(56, 6),
+			//new Point(60, 6)
+		};
+		for(int i = 0; i < points.length; i++) {
+			s = new Slugger(tileMap);
+			s.setTilePosition(points[i].x, points[i].y);
+			enemies.add(s);
+		}
+		
+	}
+	
+	@Override
+	public void update(){
+		//events
+		//boulder
+		boulderTrigger.update(player);
+		if(boulderTrigger.hasTriggered()){
+			isBoulderEvent = true;
+		}
+		if(isBoulderEvent){
+			boulderEvent();
+			boulder.update(sections.get(currentSection));
+		}
+		if(player.intersects(boulder)){
+			player.hit(10);
+		}
+		
+		//event1
+		event1_trigger.update(player);
+		if(event1_trigger.hasTriggered()){
+			isEvent1Event = true;
+		}
+		if(isEvent1Event){
+			event1Event();
+		}
+		
+		//finish
+		tele.update();
+		if(tele.contains(player)){
+			eventFinish = true;
+		}
+		
+		super.update();
+		
+		
+	}
+	
+	@Override
+	public void draw(Graphics2D g){
+		super.drawLayer1(g);
+		
+		//draw boulder
+		boulder.draw(g);
+		
+		tele.draw(g);
+		
+		super.drawLayer2(g);
+	}
+	
+	////////events/////
+	@Override
+	protected void reset(){
+		populateEnemies();
+		populateSpikes();
+		populateSprings();
+		populatePlatforms();
+		populateSigns();
+		populateDoors();
+
+		//section
+		currentSection = startSection;
+		player.setPosition(sections.get(currentSection).getSpawn());
+		
+		//boulder event
+		boulder = new Boulder(tileMap, Boulder.RIGHT);
+		boulder.setTilePosition(24, 8);
+		boulderTrigger = new Trigger(new Rectangle(33*30, 8*30, 30, 30));
+		
+		//event1
+		event1_trigger = new Trigger(new Rectangle(9*30+12, 0*30, 6, 120));
+		
+		super.reset();
+	}
+	
+	private void boulderEvent(){
+		boulderEventCounter++;
+		if(boulderEventCounter == 1){
+			blockInput = true;
+			player.stop();
+		}else if(boulderEventCounter == 15){
+			player.setEmote(Player.EMOTE_CONFUSED);
+		}else if(boulderEventCounter == 75){
+			tileMap.setShaking(true, 7);
+			player.setEmote(Player.EMOTE_ATTENTION);
+		}else if(boulderEventCounter == 125){
+			blockInput = false;
+			boulder.launch();
+			player.setEmote(Player.EMOTE_NONE);
+		}else if(boulderEventCounter == 125+210){
+			boulder.stopLaunch();
+			tileMap.setShaking(true, 77);
+		}else if(boulderEventCounter == 365){
+			tileMap.setShaking(false, 0);
+			boulderEventCounter = 0;
+			isBoulderEvent = false;
+		}
+		
+	}
+	
+	private void event1Event(){
+		eventCounter++;
+		if(eventCounter == 1){
+			player.stop();
+			blockInput = true;
+			curDialog = event1_dialog;
+			curDialog.reset(); //bara för trigger multiple
+		}else if(eventCounter == 2){
+			if(!curDialog.getDone()){
+				eventCounter--;
+			}else{
+				blockInput = false;
+				eventCounter = 0;
+				isEvent1Event = false;
+			}
+		}
+	}
+
+	@Override
+	public void activate() {
+		JukeBox.loop("level1BG");
+	}
+
+	@Override
+	public void deactivate() {
+		JukeBox.stop("level1BG");
+	}
+	
+}
+
+
+
+
+
+
+
+
+
+
+
+

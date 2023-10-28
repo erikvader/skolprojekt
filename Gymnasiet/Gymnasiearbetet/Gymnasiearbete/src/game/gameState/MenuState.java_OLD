@@ -1,0 +1,73 @@
+package GameState;
+
+import java.awt.Graphics2D;
+
+import GameState.menus.IntroScreen;
+import GameState.menus.MainMenu;
+import GameState.menus.Menu;
+import GameState.menus.SaveSelect;
+
+public class MenuState extends GameState {
+	
+	private Menu[] menus;
+	
+	public static final int MAIN_MENU = 0;
+	public static final int INTRO_SCREEN = 1;
+	public static final int SAVE_SELECT = 2;
+	
+	private int curMenu;
+	
+	public MenuState(GameStateManager gsm) {
+		
+		this.gsm = gsm;
+		
+		menus = new Menu[3];
+		menus[MAIN_MENU] = new MainMenu(this, gsm);
+		menus[INTRO_SCREEN] = new IntroScreen(this);
+		menus[SAVE_SELECT] = new SaveSelect(this);
+		
+		curMenu = MAIN_MENU;
+		
+	}
+
+	
+	public void update() {
+		menus[curMenu].update();
+	}
+	
+	public void draw(Graphics2D g) {
+		menus[curMenu].draw(g);
+		
+	}
+	
+	public void setMenu(int m){
+		curMenu = m;
+	}
+
+	@Override
+	public void activate() {
+		
+	}
+
+	@Override
+	public void deactivate() {
+		
+	}
+
+	@Override
+	public void init() {
+		
+	}
+
+	
+}
+
+
+
+
+
+
+
+
+
+

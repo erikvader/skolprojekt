@@ -1,0 +1,279 @@
+package TileMap;
+
+import java.awt.Graphics2D;
+import java.awt.Point;
+import java.awt.image.BufferedImage;
+import java.io.BufferedReader;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+import javax.imageio.ImageIO;
+import Main.GamePanel;
+
+public class TileMap {
+	
+	// position
+	private double x;
+	private double y;
+	
+	// bounds
+	private int xmin;
+	private int ymin;
+	private int xmax;
+	private int ymax;
+	
+	private double tween;
+	private int intensity;
+	private boolean shaking = false;
+	
+	// map
+	private int[][] map;
+	private int tileSize;
+	private int numRows;
+	private int numCols;
+	private int width;
+	private int height;
+	
+	// tileset
+	private BufferedImage tileset;
+	private int numTilesAcross;
+	private int numTilesUpDown;
+	private Tile[][] tiles;
+	private int tileTypes[] = {Tile.NORMAL, Tile.BLOCKED, Tile.WATER, Tile.NORMAL};
+	
+	// drawing
+	private int rowOffset;
+	private int colOffset;
+	private int numRowsToDraw;
+	private int numColsToDraw;
+	
+	//water animation
+	private int numFrames = 2;
+	private int startPos = 51;
+	private int delay = 15;
+	private int counter = 0;
+	private int currentFrame = startPos;
+	private ArrayList<Point> waterLocations;
+	
+	//animated tile??
+	//hashmap<point, animtedTile>??
+	//tile[][] map??
+	
+	public TileMap(int tileSize) {
+		this.tileSize = tileSize;
+		numRowsToDraw = GamePanel.HEIGHT / tileSize + 2;
+		numColsToDraw = GamePanel.WIDTH / tileSize + 2;
+		tween = 0.07;
+		waterLocations = new ArrayList<Point>();
+	}
+	
+	public void loadTiles(String s) {
+		try {
+
+			tileset = ImageIO.read(
+				getClass().getResourceAsStream(s)
+			);
+			numTilesAcross = tileset.getWidth() / tileSize;
+			numTilesUpDown = tileset.getHeight() / tileSize;
+			tiles = new Tile[numTilesUpDown][numTilesAcross];
+			
+			BufferedImage subimage;
+			for(int col = 0; col < numTilesAcross; col++) {
+				for(int row = 0; row < numTilesUpDown; row++){
+					subimage = tileset.getSubimage(
+							col * tileSize,
+							row * tileSize,
+							tileSize,
+							tileSize
+						);
+					tiles[row][col] = new Tile(subimage, tileTypes[row]);
+					
+				}
+				
+			}
+			
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+		}
+		
+	}
+	
+	public void loadMap(String s) {
+		waterLocations.clear();
+		try {
+			
+			InputStream in = getClass().getResourceAsStream(s);
+			BufferedReader br = new BufferedReader(
+						new InputStreamReader(in)
+					);
+			
+			numCols = Integer.parseInt(br.readLine());
+			numRows = Integer.parseInt(br.readLine());
+			map = new int[numRows][numCols];
+			width = numCols * tileSize;
+			height = numRows * tileSize;
+			
+			xmin = GamePanel.WIDTH - width;
+			xmax = 0;
+			ymin = GamePanel.HEIGHT - height;
+			ymax = 0;
+			
+			String delims = "\\s+";
+			for(int row = 0; row < numRows; row++) {
+				String line = br.readLine();
+				String[] tokens = line.split(delims);
+				for(int col = 0; col < numCols; col++) {
+					map[row][col] = Integer.parseInt(tokens[col]);
+					if(map[row][col] == startPos){
+						waterLocations.add(new Point(col, row));
+					}
+				}
+			}
+			
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+		}
+		
+	}
+	
+	public void setShaking(boolean b, int i) { shaking = b; intensity = i; }
+	public boolean isShaking() { return shaking; }
+	public int getTileSize() { return tileSize; }
+	public double getx() { return x; }
+	public double gety() { return y; }
+	public int getWidth() { return width; }
+	public int getHeight() { return height; }
+	public int getNumRows() { return numRows; }
+	public int getNumCols() { return numCols; }
+	
+	public int getType(int row, int col) {
+		int rc = map[row][col];
+		int r = rc / numTilesAcross;
+		int c = rc % numTilesAcross;
+		return tiles[r][c].getType();
+	}
+	
+	public void setTween(double d) { tween = d; }
+	
+	public void setPosition(double x, double y){
+		setPosition(x, y, xmin, xmax, ymin, ymax);
+	}
+	
+	public void setPosition(double x, double y, int xmin, int xmax, int ymin, int ymax) {
+		
+		this.x += (x - this.x) * tween;
+		this.y += (y - this.y) * tween;
+		
+		fixBounds(xmin, xmax, ymin, ymax);
+		
+		colOffset = (int)-this.x / tileSize;
+		rowOffset = (int)-this.y / tileSize;
+		
+	}
+	
+	
+	private void fixBounds(int xmin, int xmax, int ymin, int ymax) {
+		if(x < xmin) x = xmin;
+		if(y < ymin) y = ymin;
+		if(x > xmax) x = xmax;
+		if(y > ymax) y = ymax;
+	}
+	
+	
+	public void setTile(int x, int y, int to){
+		map[y][x] = to;
+	}
+	
+	public void update(){
+		//water animation
+		counter++;
+		if(counter >= delay){
+			counter = 0;
+			currentFrame++;
+			if(currentFrame >= startPos+numFrames){
+				currentFrame = startPos;
+			}
+		}
+		for(int i = 0; i < waterLocations.size(); i++){
+			int row = waterLocations.get(i).y;
+			int col = waterLocations.get(i).x;
+			
+			setTile(col, row, currentFrame);
+		}
+		
+		//shaking
+		if(shaking) {
+			this.x += Math.random() * intensity - intensity / 2;
+			this.y += Math.random() * intensity - intensity / 2;
+		}
+		
+	}
+	
+	public void draw(Graphics2D g) {
+		
+		for(int row = rowOffset; row < rowOffset + numRowsToDraw; row++) {
+			
+			if(row >= numRows) break;
+			
+			for(int col = colOffset; col < colOffset + numColsToDraw; col++) {
+				
+				if(col >= numCols) break;
+				/*
+				g.setColor(Color.RED);
+				g.drawRect((int)x + col * tileSize, (int)y + row * tileSize, tileSize, tileSize);
+				*/
+				if(map[row][col] == 0) continue;
+				
+				int rc = map[row][col];
+				int r = rc / numTilesAcross;
+				int c = rc % numTilesAcross;
+				
+				g.drawImage(
+					tiles[r][c].getImage(),
+					(int)x + col * tileSize,
+					(int)y + row * tileSize,
+					null
+				);
+				/*
+				g.setColor(Color.RED);
+				g.drawRect((int)x + col * tileSize, (int)y + row * tileSize, tileSize, tileSize);
+				*/
+				
+			}
+			
+		}
+		
+	}
+	 /*
+	public int getXmin(){return xmin;}
+	public void setXmin(int xmin){this.xmin = xmin;}
+	public int getYmin(){return ymin;}
+	public void setYmin(int ymin){this.ymin = ymin;}
+	public int getXmax(){return xmax;}
+	public void setXmax(int xmax){this.xmax = xmax;}
+	public int getYmax(){return ymax;}
+	public void setYmax(int ymax){this.ymax = ymax;}
+	*/
+	
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
