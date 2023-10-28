@@ -1,0 +1,24 @@
+<RCC>
+    <qresource prefix="/bgPictures">
+        <file alias="windowIcon">resourcefile_contents/windowIcon.png</file>
+        <file alias="0">resourcefile_contents/2x2x2.jpg</file>
+        <file alias="1">resourcefile_contents/3x3.jpg</file>
+        <file alias="2">resourcefile_contents/4x4.jpg</file>
+        <file alias="3">resourcefile_contents/5x5.jpg</file>
+        <file alias="4">resourcefile_contents/6x6.jpg</file>
+        <file alias="5">resourcefile_contents/7x7.jpg</file>
+        <file alias="6">resourcefile_contents/8x8.jpg</file>
+        <file alias="7">resourcefile_contents/9x9.jpg</file>
+        <file alias="8">resourcefile_contents/10x10.jpg</file>
+        <file alias="9">resourcefile_contents/11x11.jpg</file>
+        <file alias="10">resourcefile_contents/blind.jpg</file>
+        <file alias="17">resourcefile_contents/clock.jpg</file>
+        <file alias="12">resourcefile_contents/feet.jpg</file>
+        <file alias="13">resourcefile_contents/megaminx.jpg</file>
+        <file alias="11">resourcefile_contents/one_hand.jpg</file>
+        <file alias="other">resourcefile_contents/other.jpg</file>
+        <file alias="14">resourcefile_contents/pyraminx.jpg</file>
+        <file alias="15">resourcefile_contents/skewb.jpg</file>
+        <file alias="16">resourcefile_contents/square1.jpg</file>
+    </qresource>
+</RCC>

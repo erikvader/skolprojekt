@@ -1,0 +1,48 @@
+package main;
+
+import java.util.HashMap;
+
+
+public class FloydArray<T> {
+
+	private T[][] data;
+	private HashMap<Vertex, Integer> IDs;
+	private int lastID = 0;
+	
+	private boolean d;
+	
+	@SuppressWarnings("unchecked")
+	public FloydArray(int size, int d){
+		data = (T[][]) new Object[size][size];
+		IDs = new HashMap<Vertex, Integer>();
+		
+		this.d = d == 0 ? false : true;
+	}
+	
+	public void set(Vertex v1, Vertex v2, T value){
+		fixIDs(v1, v2);
+		data[IDs.get(v1)][IDs.get(v2)] = value;
+		if(d){
+			if((Integer)value < 0){
+				System.out.println(value);
+			}
+		}
+	}
+	
+	private void fixIDs(Vertex v1, Vertex v2){
+		if(!IDs.containsKey(v1)){
+			IDs.put(v1, lastID++);
+		}
+		if(!IDs.containsKey(v2)){
+			IDs.put(v2, lastID++);
+		}
+	}
+	
+	public T get(Vertex v1, Vertex v2){
+		return data[IDs.get(v1)][IDs.get(v2)];
+	}
+	
+	public int length(){
+		return data.length;
+	}
+}

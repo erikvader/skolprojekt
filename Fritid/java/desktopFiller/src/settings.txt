@@ -1,0 +1,3 @@
+//settings for Master
+folders: 200
+pictures: 2

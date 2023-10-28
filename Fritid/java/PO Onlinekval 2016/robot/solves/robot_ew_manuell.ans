@@ -1,0 +1,49 @@
+main:
+	for 13 {
+		forward
+	}
+	left
+	for 23 {
+		forward
+	}
+	
+	for 3 {
+		call crawl
+	}
+	
+	right
+	call goforward
+	left
+	
+	for 50 {
+		forward
+	}
+	
+	right
+	
+	for 60 {
+		forward
+	}
+	
+crawl:
+	right
+	call goforward
+	left
+	call goforward
+	left
+	call goforward
+	right
+	call goforward
+	
+goforward:
+	for 5 {
+		forward
+	}
+	
+	
+	
+	
+	
+	
+	
+	

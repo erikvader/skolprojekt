@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Langton's Ant</title>
+	<link href="css/stil.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+
+	<div id="canvas">
+		<canvas></canvas>
+	</div>
+	
+	<div id="controls">
+	
+		<div id="colors">
+			<div class="color" style="background: #FFFFFF;" colorindex="0">
+				<div class="direction" turn="0">&#x21B6;</div>
+				<div class="remove">X</div>
+				<img src="img/bucket.ico" />
+			</div>
+			<div class="color" style="background: #222222;" colorindex="1">
+				<div class="direction" turn="2">&#x21B7;</div>
+				<div class="remove">X</div>
+				<img src="img/bucket.ico" />
+			</div>
+			
+			<div id="colorAdd">+</div>
+		</div>
+		
+		<div id="settings">
+			<div id="beforeAntDraw">Ant Draw:&nbsp;</div>
+			<select id="antDraw">
+				<option>full</option>
+				<option>simplified</option>
+				<option>none</option>
+			</select>
+			<!--<div id="beforeStepTick">steps per tick:&nbsp;</div>
+			<input id="stepTick" type="number" value="1" />-->
+			<div id="paintBucket">
+				<!--
+				<select id="bucketColor">
+					
+				</select>
+				-->
+				<div id="beforeBucketSize">Bucket size</div>
+				<select id="bucketSize">
+					
+				</select>
+			</div>
+		</div>
+		
+		<div id="navi">
+			<div id="zoomIn">+</div>
+			<div id="zoomOut">-</div>
+			
+			<div id="pilContainer">
+				<div id="pLeft">&#x21E6;</div>
+				<div id="pRight">&#x21E8;</div>
+				<div id="pTop">&#x21E7;</div>
+				<div id="pBottom">&#x21E9;</div>
+			</div>
+			
+			<div id="start">start</div>
+			<div id="stop">stop</div>
+			<div id="reset">reset</div>
+			
+			<div id="slower">slower</div>
+			<div id="faster">faster</div>
+			<div id="hyper">hyper</div>
+			
+		</div>
+	</div>
+
+	<script type="text/javascript" src="js/jquery.js"></script>
+	<script type="text/javascript" src="js/mina_script.js"></script>
+</body>
+</html>

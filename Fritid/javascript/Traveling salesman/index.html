@@ -1,0 +1,31 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Traveling Salesman</title>
+  <script language="javascript" type="text/javascript" src="libraries/p5.js"></script>
+  <!-- uncomment lines below to include extra p5 libraries -->
+  <script language="javascript" src="libraries/p5.dom.js"></script>
+  <!--<script language="javascript" src="libraries/p5.sound.js"></script>-->
+  <script language="javascript" type="text/javascript" src="sketch.js"></script>
+  <!-- this line removes any default padding and style. you might only need one of these values set. -->
+  
+  <link href="css.css" rel="stylesheet" type="text/css">
+  
+</head>
+
+<body>
+
+	<div id="layout">
+		<div id="canvasHolder"></div>
+		<div id="controls">
+			<button id="startBtn">start</button><br>
+			<div id="distanceDiv">distance: <span id="distanceDivSpan">0</span></div><br>
+			<div>
+				<span>tests per update (60fps): </span>
+				<input id="speedInput" type="text" />
+			</div><br>
+		</div>
+	</div>
+
+</body>
+</html>

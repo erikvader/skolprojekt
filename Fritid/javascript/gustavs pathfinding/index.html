@@ -1,0 +1,532 @@
+<html>
+    <head>
+        <title>Path finder</title>
+
+        <meta charset="windows-1252">
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js">
+        </script>
+        <style>
+            .tabell {
+                margin-left: 0px;
+                margin-top: 0px;
+            }
+            .box {
+                height: 27px;
+                width: 24px;
+                background-color: black;
+                text-align: center;
+            }
+            .data {
+                position: fixed;
+                margin-left: 1130px;
+                margin-top: 100px;
+            }
+            .txt {
+                color: white;
+            }
+            .button:active {
+                border: black;
+            }
+        </style>
+        <script>
+            var openList = [];
+            var parentList = [];
+            var lengthToGoal = [];
+            var lengthFromStart = [];
+            var GoalX = 30;
+            var GoalY = 10;
+            var StartX = 10;
+            var StartY = 10;
+            var moveGoal = false;
+            var moveStart = false;
+            var diagonal = false;
+            var dijkstra = false;
+            var directly = false;
+            var endWhenBlue = true;
+            var again = true;
+            var safety = 1;
+            var time = 10;
+            var green = "<img src='../bilder/green.jpg'>";
+            var gray = "<img src='../bilder/gray.jpg'>";
+            var red = "<img src='../bilder/red.jpg'>";
+            var blue = "<img src='../bilder/blue.jpg'>";
+            var lightBlue = "<img src='../bilder/lightBlue.jpg'>";
+            var yellow = "<img src='../bilder/yellow.jpg'>";
+            $(document).keypress(function (knapp)
+            {
+                if (knapp.which === 13)
+                {
+                    doSearch();
+                }
+            });
+            //------------------------------------------------------------------
+            function doReset()
+            {
+                $("#idRoad").html("Road length:");
+                $("#idOperations").html("Operations:");
+                openList = [];
+                for (i=0; i<=21; i++)
+                {
+                    lengthToGoal[i] = [];
+                    lengthFromStart[i] = [];
+                    parentList[i] = [];
+                    for (j=0; j<=41; j++)
+                    {
+                        lengthToGoal[i][j] = 0;
+                        lengthFromStart[i][j] = 999999;                         //Ett stort tal
+                        parentList[i][j] = 0;
+                        if (i===0 || j===0 || i===21 || j===41)
+                        {
+                            lengthToGoal[i][j] = -1;
+                        }
+                        idx = j;
+                        idy = i;
+                        if (idx < 10){idx = "0" + idx;}
+                        if (idy < 10){idy = "0" + idy;}
+                        id = "#a" + idy + "a" + idx;
+                        $(id).html("");
+                        if (40*i + j === 40*GoalY + GoalX)$(id).html(red);
+                        if (40*i + j === 40*StartY + StartX)$(id).html(green);
+                    }
+                }
+            }
+            //------------------------------------------------------------------
+            function doSearch()
+            {
+                again = true;
+                operations = 0;
+                if (moveGoal === false && moveStart === false)
+                {
+                    openList = [];
+                    for (i=0; i<=41; i++)
+                    {
+                        for (j=0; j<=21; j++)
+                        {
+                            if (lengthToGoal[j][i] !== -1){lengthToGoal[j][i] = 0;}
+                            lengthFromStart[j][i] = 999999;                               //Ett stort tal
+                            parentList[j][i] = 0;
+                            if (i===0 || j===0 || i===41 || j===21)
+                            {
+                                lengthToGoal[j][i] = -1;
+                            }
+                            idx = i;
+                            idy = j;
+                            if (idx < 10){idx = "0" + idx;}
+                            if (idy < 10){idy = "0" + idy;}
+                            id = "#a" + idy + "a" + idx;
+                            if (lengthToGoal[j][i] >= 0 && dijkstra === false)
+                            {
+                                if (directly === true){
+                                    lengthToGoal[j][i] = Math.pow(Math.abs(i - GoalX),2) + Math.pow(Math.abs(j - GoalY),2);
+                                }
+                                else {
+                                    lengthToGoal[j][i] = Math.abs(i - GoalX) + Math.abs(j - GoalY);
+                                }
+                            }
+                            if (lengthToGoal[j][i] !== -1 && 40*j + i !== 40*GoalY + GoalX && 40*j + i !== 40*StartY + StartX)
+                            {
+                                //$(id).html(lengthToGoal[j][i]);
+                                $(id).html("");
+                            }
+
+                        }
+                    }
+                    openList[0] = 40*StartY + StartX - 1;
+                    lengthFromStart[StartY][StartX] = 0;
+
+                    doLoop();
+                }
+            }
+ajax.googleapis.com
+ajax.googleapis.com
+
+//------------------------------------------------------------------
+            function doLoop()
+            {
+                length = openList.length - 1;
+                nextNode = 999999;
+                for (i=0; i<=length; i++)//hitta lägsta siffran i openlist
+                {
+                    number = openList[i];
+                    y = Math.floor(number/40);
+                    x = number - 40*y + 1;
+                    if (lengthFromStart[y][x] < nextNode)
+                    {
+                        nextNode = lengthFromStart[y][x];
+                        newX = x;
+                        newY = y;
+                        lengthInNextLoop = i;
+                    }
+                }
+                for (i=lengthInNextLoop; i<=length; i++)//remove nextNode from openList
+                {
+                    if (i === length){
+                        openList[i] = 0;
+                    }
+                    else{
+                        openList[i] = openList[i+1];
+                    }
+                }
+                openList.length = length;
+                
+                EjSammaRuta = 0;
+                for (i=-1; i<=1; i++) //lägger till nya i openlist
+                {
+                    for (j=-1; j<=1; j++)
+                    {
+                        EjSammaRuta++;
+                        if (EjSammaRuta%2 === 0){
+                            litetill = safety;
+                        }
+                        else{
+                            litetill = safety*Math.sqrt(2);
+                        }
+                        x = newX + i;
+                        y = newY + j;
+                        if (lengthFromStart[y][x] > nextNode + lengthToGoal[y][x] + litetill && lengthToGoal[y][x] !== -1 && EjSammaRuta !== 5)
+                        { 
+                            if (!(diagonal === false && EjSammaRuta%2 !== 0))
+                            {
+                                lengthFromStart[y][x] = nextNode + lengthToGoal[y][x] + litetill;
+                                parentList[y][x] = 40*newY + newX - 1;
+                                openList.push(40*y + x - 1);
+                                idx = x;
+                                idy = y;
+                                if (idx < 10){idx = "0" + idx;}
+                                if (idy < 10){idy = "0" + idy;}
+                                id = "#a" + idy + "a" + idx;
+                                if (40*y + x !== 40*GoalY + GoalX)
+                                {
+                                    if (time !== 0){
+                                        $(id).html(lightBlue);
+                                    }
+                                }
+                                else
+                                {
+                                    again = false;
+                                }
+                            }
+                        }
+                    }
+                }
+                
+                idx = newX;
+                idy = newY;
+                if (idx < 10){idx = "0" + idx;}
+                if (idy < 10){idy = "0" + idy;}
+                id = "#a" + idy + "a" + idx;
+                if (40*newY + newX !== 40*StartY + StartX && 40*newY + newX !== 40*GoalY + GoalX)
+                {
+                    if (time !== 0){
+                        $(id).html(blue);
+                    }
+                }
+                
+                if (endWhenBlue === true)
+                {
+                    if (40*newY + newX !== 40*GoalY + GoalX)
+                    {
+                        operations++;
+                        if (time === 0){
+                            doLoop();
+                        }
+                        else {
+                            loop = setTimeout(function(){doLoop();},time);
+                        }
+                    }
+                    else
+                    {
+                        $("#idOperations").html("Operations: " + operations);
+                        showTheWay();
+                    }
+                }
+                else
+                {
+                    if (again === true)
+                    {
+                        operations++;
+                        if (time === 0){
+                            doLoop();
+                        }
+                        else {
+                            loop = setTimeout(function(){doLoop();},time);
+                        }
+                    }
+                    else
+                    {
+                        $("#idOperations").html("Operations: " + operations);
+                        showTheWay();
+                    }
+                }
+            }
+            //------------------------------------------------------------------
+            function showTheWay()
+            {
+                road = parentList[GoalY][GoalX];
+                roadLength = 0;
+                length = Math.abs(40*GoalY + GoalX - 1 - road);
+                if (length === 1 || length === 40)
+                {
+                    roadLength++;
+                }
+                else
+                {
+                    roadLength = roadLength + Math.sqrt(2);
+                }
+                while (road !== 40*StartY + StartX - 1)
+                {
+                    y = Math.floor(road/40);
+                    x = road - 40*y + 1;
+                    idx = x;
+                    idy = y;
+                    if (idx < 10){idx = "0" + idx;}
+                    if (idy < 10){idy = "0" + idy;}
+                    id = "#a" + idy + "a" + idx;
+                    $(id).html(yellow);
+                    road = parentList[y][x];
+                    length = Math.abs(40*y + x - 1 - road);
+                    if (length === 1 || length === 40)
+                    {
+                        roadLength++;
+                    }
+                    else
+                    {
+                        roadLength = roadLength + Math.sqrt(2);
+                    }
+                }
+                $("#idRoad").html("Road length: " + roadLength);
+            }
+
+//------------------------------------------------------------------
+            function addOrRemove(id)
+            {
+                splitter = id.split("");
+                y = 10*eval(splitter[1]) + eval(splitter[2]);
+                x = 10*eval(splitter[4]) + eval(splitter[5]);
+                id = "#" + id;
+                if (moveGoal === true)
+                {
+                    if (40*y+x !== 40*StartY+StartX)
+                    {
+                        moveGoal = false;
+                        GoalX = x;
+                        GoalY = y;
+                        $(id).html(red);
+                        lengthToGoal[y][x] = 0;
+                    }
+                }
+                else if (moveStart === true)
+                {
+                    if (40*y+x !== 40*GoalY+GoalX)
+                    {
+                        moveStart = false;
+                        StartX = x;
+                        StartY = y;
+                        $(id).html(green);
+                        lengthToGoal[y][x] = 0;
+                    }
+                }
+                else
+                {
+                    $(id).html("");
+                    if(40*y + x === 40*GoalY + GoalX)
+                    {
+                        moveGoal = true;
+                        GoalX = 0;
+                        GoalY = 0;
+                        lengthToGoal[y][x] = 0;
+                    }
+                    else if (40*y + x === 40*StartY + StartX)
+                    {
+                        moveStart = true;
+                        StartX = 0;
+                        StartY = 0;
+                        lengthToGoal[y][x] = 0;
+                    }
+                    else
+                    {
+                        if (lengthToGoal[y][x] !== -1)
+                        {
+                            lengthToGoal[y][x] = -1;
+                            $(id).html(gray);
+                        }
+                        else
+                        {
+                            lengthToGoal[y][x] = 0;
+                        }
+                    }
+                }
+            }
+            //------------------------------------------------------------------
+            function checkbox(nr)
+            {
+                if (nr === 1){
+                    if (diagonal === true){
+                        diagonal = false;
+                    }
+                    else{
+                        diagonal = true;
+                    }
+                }
+                if (nr === 2){
+                    if (dijkstra === true){
+                        dijkstra = false;
+                    }
+                    else{
+                        dijkstra = true;
+                    }
+                }
+                if (nr === 3)
+                {
+                    if (directly === true){
+                        directly = false;
+                    }
+                    else{
+                        directly = true;
+                    }
+                    if (dijkstra === true)
+                    {
+                        alert("Hastighet spelar ingen roll om dijkstra är ifylld!");
+                    }
+                }
+                if (nr === 4){
+                    if (endWhenBlue === false){
+                        document.getElementById("lightblue").checked = false;
+                        endWhenBlue = true;
+                    }
+                    else{
+                        document.getElementById("lightblue").checked = true;
+                        endWhenBlue = false;
+                    }
+                }
+                if (nr === 5){
+                    if (endWhenBlue === true){
+                        document.getElementById("blue").checked = false;
+                        endWhenBlue = false;
+                    }
+                    else{
+                        document.getElementById("blue").checked = true;
+                        endWhenBlue = true;
+                    }
+                }
+            }
+            //------------------------------------------------------------------
+            function changeSafety()
+            {
+                safety = eval($("#idSafetyNr").val());
+                if (safety === undefined || safety < 0)
+                {
+                    safety = 0;
+                }
+                $("#idSafety").html("Safety = " + safety);
+                if (dijkstra === true)
+                {
+                    alert("Safety spelar ingen roll om dijkstra är ifylld!");
+                }
+            }
+            //------------------------------------------------------------------
+            function changeTime()
+            {
+                time = eval($("#idTimeNr").val());
+                if (time === undefined || time < 0)
+                {
+                    time = 0;
+                }
+                $("#idTime").html("milliseconds = " + time);
+            }
+
+function createTable()
+            {
+                body = document.getElementsByTagName("body")[0];
+                tbl  = document.createElement("table");
+                for (j=1; j<=20; j++)
+                {
+                    row = document.createElement("tr");
+                    for (i=1; i<=40; i++)
+                    {
+                        cell = document.createElement("td");
+                        idX = i;
+                        idY = j;
+                        if (idX < 10) idX = "0" + idX;
+                        if (idY < 10) idY = "0" + idY;
+                        id = "a" + idY + "a" + idX;
+                        cell.setAttribute("id", id);
+                        cell.setAttribute("onclick", "addOrRemove(this.id)");
+                        cell.setAttribute("class", "box");
+                        row.appendChild(cell);
+                    }
+                    tbl.appendChild(row);
+                }
+                row = document.createElement("tr");
+                cell = document.createElement("td");
+                cell.setAttribute("colspan", "10");
+                cell.setAttribute("id", "idRoad");
+                cell.setAttribute("class", "txt");
+                row.appendChild(cell);
+                tbl.appendChild(row);
+                row = document.createElement("tr");
+                cell = document.createElement("td");
+                cell.setAttribute("colspan", "10");
+                cell.setAttribute("id", "idOperations");
+                cell.setAttribute("class", "txt");
+                row.appendChild(cell);
+                tbl.appendChild(row);
+                
+                tbl.setAttribute("class", "tabell");
+                body.appendChild(tbl);
+            }
+        </script>
+    </head>
+    <body bgcolor="#222222">
+        <table class="data">
+            <tr>
+                <td class="txt"><input type="checkbox" onclick="checkbox(1)">Allow diagonal</td>
+            </tr>
+            <tr>
+                <td class="txt"><input type="checkbox" onclick="checkbox(2)">Dijkstra</td>
+            </tr>
+            <tr>
+                <td class="txt"><input type="checkbox" onclick="checkbox(3)">More directly</td>
+            </tr>
+            <tr><td><br></td></tr>
+            <tr>
+                <td id="idSafety" class="txt">Safety = 1</td>
+            </tr>
+            <tr>
+                <td><input id="idSafetyNr" type="text" onkeyup="changeSafety()" placeholder="Number" value="1"></td>
+            </tr>
+            <tr>
+                <td id="idTime" class="txt">milliseconds = 10</td>
+            </tr>
+            <tr>
+                <td><input id="idTimeNr" type="text" onkeyup="changeTime()" placeholder="Number" value="10"></td>
+            </tr>
+            <tr><td><br></td></tr>
+            <tr>
+                <td class="txt">The lopp shall end</td>
+            </tr>
+            <tr>
+                <td class="txt">when target gets:</td>
+            </tr>
+            <tr>
+                <td class="txt"><input type="checkbox" id="blue" onclick="checkbox(4)" checked>Blue</td>
+            </tr>
+            <tr>
+                <td class="txt"><input type="checkbox" id="lightblue" onclick="checkbox(5)">Lightblue</td>
+            </tr>
+            <tr><td><br></td></tr>
+            <tr><td><br></td></tr>
+            <tr>
+                <td><input type="button" class="button" onclick="doSearch()" value="Start Search"></td>
+            </tr>
+            <tr><td><br></td></tr>
+            <tr>
+                <td><input type="button" class="button" onclick="doReset()" value="Clear Area"></td>
+            </tr>
+        </table>
+    </body>
+    <script>
+        createTable();
+        doReset();
+    </script>
+</html>

@@ -1,0 +1,298 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+
+img{
+	border: none;
+}
+
+a{
+	text-decoration: none;
+}
+
+html,body{
+	width: 100%;
+	height: 100%;
+}
+
+#canvas{
+	width: 80%;
+	height: 100%;
+	overflow: hidden;
+	position: absolute;
+	left: 0;
+	top: 0;
+}
+
+#controls{
+	width: calc(20% - 3px);
+	height: 100%;
+	position: absolute;
+	right: 0;
+	top: 0;
+	border-left: 3px solid black;
+}
+
+	#colors{
+		width: 100%;
+		height: 60%;
+		position: absolute;
+		top: 0;
+		left: 0;
+		overflow-y: scroll;
+	}
+	
+		.color{
+			position: relative;
+			margin-top: 3%;
+			width: calc(100% - 6px);
+			border: 3px solid black;
+			font-size: 25px;
+			padding-bottom: 10%;
+		}
+		
+		.color:hover{
+			border-color: blue;
+			cursor: pointer;
+		}
+		
+			.direction{
+				position: absolute;
+				right: 2%;
+				top: 0;
+				background: white;
+				height: 100%;
+				padding-left: 2%;
+				padding-right: 2%;
+			}
+			
+			.direction:hover{
+				background: red;
+				cursor: pointer;
+			}
+			
+			.remove{
+				position: absolute;
+				left: 2%;
+				top: 0;
+				background: white;
+				color: red;
+				height: 100%;
+				padding-left: 2%;
+				padding-right: 2%;
+			}
+			
+			.remove:hover{
+				cursor: pointer;
+				background: red;
+				color: white;
+			}
+			
+		.color img{
+			height: 100%;
+			position: absolute;
+			left: 13%;
+			top: 0;
+			background: none;
+		}
+		
+		.color img:hover{
+			background: red;
+		}
+	
+		#colorAdd{
+			display: block;
+			width: 10%;
+			font-size: 20px;
+			background: yellow;
+			text-align: center;
+			border-radius: 60000000000000000px;
+			margin-left: 42%;
+			padding: 3%;
+			margin-top: 5%;
+			margin-bottom: 5%;
+		}
+		
+		#colorAdd:hover{
+			cursor: pointer;
+			background: red;
+		}
+		
+	#settings{
+		position: absolute;
+		left: 0;
+		top: 60%;
+		width: 100%;
+		height: 10%;
+	}
+		
+		#beforeAntDraw{
+			width: 40%;
+			float: left;
+			height: 30%;
+			text-align: right;
+		}
+	
+		#antDraw{
+			display: block;
+			width: 60%;
+			height: 30%;
+			float: left;
+		}
+		/*
+		#beforeStepTick{
+			height: 15%;
+			width: 40%;
+			float: left;
+			text-align: right;
+		}
+		
+		#stepTick{
+			height: 15%;
+			width: calc(60% - 4px);
+			float: left;
+			display: block;
+		}
+		*/
+		#paintBucket{
+			width: 100%;
+			height: 70%;
+			float: left;
+		}
+		
+			#beforeBucketSize{
+				float: left;
+				text-align: right;
+				width: 30%;
+				height: 100%;
+			}
+		
+			#paintBucket select{
+				float: left;
+				width: 70%;
+				height: 100%;
+			}
+
+	#navi{
+		width: 100%;
+		height: 30%;
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		text-align: center;
+	}
+	
+		#zoomIn{
+			width: 50%;
+			height: 20%;
+			float: left;
+			background: yellow;
+		}
+		
+		#zoomOut{
+			width: 50%;
+			height: 20%;
+			float: left;
+			background: yellow;
+		}
+		
+		#zoomOut:hover, #zoomIn:hover{
+			background: red;
+			cursor: pointer;
+		}
+		
+		#pilContainer{
+			width: 100%;
+			float: left;
+			height: 50%;
+			position: relative;
+		}
+		
+			#pilContainer div{
+				background: green;
+			}
+		
+			#pilContainer div:hover{
+				cursor: pointer;
+				background: red;
+			}
+			
+			#pLeft, #pRight{
+				width: 33.33333333%;
+				height: 50%;
+				position: absolute;
+				top: 50%;
+			}
+			
+			#pLeft{
+				left: 0;
+			}
+			
+			#pRight{
+				left: 66.666666666%;
+			}
+			
+			#pTop{
+				position: absolute;
+				top: 0;
+				left: 33.33333333%;
+				height: 50%;
+				width: 33.333333333%;
+			}
+			
+			#pBottom{
+				position: absolute;
+				bottom: 0;
+				left: 33.333333333%;
+				height: 50%;
+				width: 33.333333333%;
+			}
+			
+		#start, #stop, #reset{
+			height: 20%;
+			width: 33.3333333333%;
+			float: left;
+			background: pink;
+		}
+		
+		#start:hover, #stop:hover, #reset:hover{
+			background: red;
+			cursor: pointer;
+		}
+		
+		#slower{
+			width: 40%;
+			height: 10%;
+			float: left;
+			background: orange;
+			
+		}
+		
+		#faster{
+			width: 40%;
+			height: 10%;
+			float: left;
+			background: orange;
+		}
+		
+		#hyper{
+			height: 10%;
+			width: 20%;
+			float: left;
+			background: orange;
+		}
+		
+		#faster:hover, #slower:hover, #hyper:hover{
+			background: red;
+			cursor: pointer;
+		}
+		
+		
+		
+		
+		
+		
+		
+		
+		

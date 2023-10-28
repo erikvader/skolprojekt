@@ -1,0 +1,13 @@
+<RCC>
+    <qresource prefix="/ColorIcons">
+        <file>K:/Mina Filer/bilder/Magic black.png</file>
+        <file>K:/Mina Filer/bilder/Magic blue.png</file>
+        <file>K:/Mina Filer/bilder/Magic colorless.png</file>
+        <file>K:/Mina Filer/bilder/Magic green.png</file>
+        <file>K:/Mina Filer/bilder/Magic red.png</file>
+        <file>K:/Mina Filer/bilder/Magic white.png</file>
+        <file>K:/Mina Filer/bilder/mtg_multicolored.png</file>
+        <file>K:/Mina Filer/bilder/magic arrow.png</file>
+        <file>K:/Mina Filer/bilder/magic cross.png</file>
+    </qresource>
+</RCC>

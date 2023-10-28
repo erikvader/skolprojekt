@@ -1,0 +1,17 @@
+public int binarySearch(int[] lista, int value){
+	int min = 0;
+	int max = lista.length-1;
+	int index = -1;
+
+	while(min <= max && index == -1){
+		int mitt = (min+max)/2;
+		if(value > lista[mitt])
+			min = mitt+1;
+		else if(value < lista[mitt])
+			max = mitt-1;
+		else
+			index = mitt;
+	}
+
+	return index;
+}

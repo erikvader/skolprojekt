@@ -1,0 +1,17 @@
+	public static int choose(int n, int k){
+		if(k == 0 || k == n){
+			return 1;
+		}else{
+			return (int)(choose(n, k-1)*((n-k+1)/(double)k)); //kanske Math.round på hela grejen
+		}
+	}
+	
+	public static int permutation(int n, int k){
+		if(k == 0){
+			return 1;
+		}else{
+			return permutation(n, k-1)*(n-k+1);
+		}
+	}
+
+http://stackoverflow.com/questions/2201113/combinatoric-n-choose-r-in-java-math

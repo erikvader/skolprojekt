@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" width="50" height="25" tilewidth="60" tileheight="60">
+ <tileset firstgid="1" name="hyptosis1" tilewidth="60" tileheight="60">
+  <image source="../../textures bin/map textures/hyptosis1.png" width="1800" height="1800"/>
+ </tileset>
+ <tileset firstgid="901" name="hyptosis2" tilewidth="60" tileheight="60">
+  <image source="../../textures bin/map textures/hyptosis2.png" width="1800" height="1800"/>
+ </tileset>
+ <tileset firstgid="1801" name="hyptosis3" tilewidth="60" tileheight="60">
+  <image source="../../textures bin/map textures/hyptosis3.png" width="1800" height="1800"/>
+ </tileset>
+ <tileset firstgid="2701" name="hyptosis4" tilewidth="60" tileheight="60">
+  <image source="../../textures bin/map textures/hyptosis4.png" width="1800" height="1800"/>
+ </tileset>
+ <tileset firstgid="3601" name="hyptosis5" tilewidth="60" tileheight="60">
+  <image source="../../textures bin/map textures/hyptosis5.png" width="1080" height="2280"/>
+ </tileset>
+ <tileset firstgid="4285" name="poke" tilewidth="60" tileheight="60">
+  <image source="../../textures bin/map textures/poke.png" width="540" height="1020"/>
+ </tileset>
+ <tileset firstgid="4438" name="pokeSno" tilewidth="60" tileheight="60">
+  <image source="../../textures bin/map textures/pokeSno.png" width="1200" height="900"/>
+ </tileset>
+ <tileset firstgid="4738" name="Waterfall" tilewidth="60" tileheight="60">
+  <image source="../../textures bin/map textures/Waterfall.png" width="720" height="240"/>
+ </tileset>
+ <tileset firstgid="4786" name="pokesaker" tilewidth="60" tileheight="60">
+  <image source="../../textures bin/map textures/pokesaker.png" width="120" height="60"/>
+ </tileset>
+ <layer name="ground" width="50" height="25">
+  <data encoding="base64" compression="zlib">
+   eJy1lkFOhFAQRCFIjO5Zm+hC93MFo245yegBxht4Al14Bd3pFXAx53HlJ4GkKV59mKiLDvPh8+mqrq6eriiK7hdxdjxdH9XTqFN8FRybFO1wbcK1hfvxWbzXht+bzFmN2a/nj9fzehoX9XTPeE4X1rncCZvi19zaYo6FMOn7TVi/pdiHeA/74nldeK8pmC/NR/fqmt5XDLRWDnM4lM+umHNP+7TeVJu4b5vifojI34O8o1jW1EN1PdYjch6ffZdz3jfyLafxJ6hn1A5xT3UiHMp1M+AgDTWwpvo08vwyYb9OcRfiFtZjnFa8r/99UjKO13R/l+KxnOpKeSC9a70VY+y3Q+Kqyj+nOvU4nlO8lNO96ieqI+19zT3u+Q8cmoPDQXtjnuoBu2ruSyNnf41D8+qjn3kfCcNnOZ+DbkYoBsKq+st5rp55U3G9x997CDpT+XQ9oN5Ic1OxkT/rPHQ+2BoMLnfnge6/hD5X/dGcptnj5j3NXKrHdgjHBc1CnXc0u5Ub1ZnzbKql7tkDx1v5ntOQ8yTqBefPWivyvzVcOc70u9rj5FlLWqQ+0Hwp9zX5qc5yvJJf5bxAe5V4dv2uGnP96DzB9aDjxenZ5ZnrF/IEN2f1e077Of9fmh/KKeVGmlGO1/Lo6rop5jxRPrl7ud52vZ/rAce306HzCvKgQzSsdXWzIudLpDV6R/OgPnK+4mrpeprOdPzp++Qbyg3pXDVKNSLsjls9361dX1POzvdcD2m/OK41B8cz5aH9QLhcXzgPX8JEOlEsSxpz9XR9r33g+o3OJx8nrTqMMZ8f1TVWZQ==
+  </data>
+ </layer>
+ <layer name="Tile Layer 2" width="50" height="25">
+  <data encoding="base64" compression="zlib">
+   eJzFmL1OG0EUhcdrIhCls6agQvAAQXYCXSIeAIQBUWH+pNT8KGmgyANEwUhQgWsSxJ+AgiQvgJKKBpKCpAmR8gBJJCBFzpWv5evV7DLjnTVH+uQdz7Bzzt6ZWeSuB0p1OcRG0+1u6AEz7bX7bqSV2gTltJ2f40zt+kdLfd9VoE06wvi/reb33/eUGgUHnr5/RuQ4gff34AP4aJmjEflt4X1j7JsYAS/4etwgxzm8X4Av4GsTckTVYxF+FzgDfW6DfymldgxykH7D/x8wr2okJVmPU/j7KTy+Zt9VLsE38D1V6X+KffhM7EXKMCtyZLCWH4IVVaOUUA5Zj0/wnRZr4FpkuElV2nsYc8s5JpChGMjhWivYwyXBakY/Ttbjc2C9XLN/8p31Ku1OkWMJGZYTzrEB35uCckgOWY9fgRxP0O4D/SDv1bd1SiLHFny/FbwzqEeUCl79ua5TNYftey6qfw39LwXrIXPnDHNkNe8fXQ7XNTkEZ4KjmPfL30MOykA1cZWB1GGZYw7j58ECWDT42zDRWq7mIeJkKcDHY8scb+i9AUoWGZ6n9N/b/r8o5bP3HH/a7o8djN8FezFq0YiGWyoU2HOerwv8vYmS2Oc2yvNz7+Bnb7KGdLLJcdcZ3ogoxwgTR82uh1xDrjKQGs0Rtr/D5Af2bS7GGtKpGfXIsmffsXcpmeMR5uh1PM8wP38XaydKMscg5hpyNF+W/fuG5/8reOiOwUAC66p6ftI+Nj3jivAwGYMkcpByTXyX0m8vlKHo6DckCcn1PaOYAv8Brs+grg==
+  </data>
+ </layer>
+ <layer name="Tile Layer 3" width="50" height="25">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFo2AUDCUwgYmBoQcJDwdwehj4QxjoBxEc/tgsRF+3UAIMgX4wGgbxMQqoDxRYB9oFpIPB5mZqlgWDzW+kgMcsA+2CUTAKRsEoGAWjYBSMgoEDAJltBnw=
+  </data>
+ </layer>
+ <layer name="Tile Layer 4" width="50" height="25">
+  <data encoding="base64" compression="zlib">
+   eJztzjEBAAAIA6Ad9k9pEFu4BxKQAADAj532AACg5wBG3ADp
+  </data>
+ </layer>
+</map>

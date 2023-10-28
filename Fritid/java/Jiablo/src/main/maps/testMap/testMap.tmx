@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" width="50" height="25" tilewidth="60" tileheight="60">
+ <tileset firstgid="1" name="Grass" tilewidth="60" tileheight="60">
+  <image source="../downloaded textures/grass tiles.png" width="480" height="900"/>
+  <terraintypes>
+   <terrain name="New Terrain" tile="-1"/>
+   <terrain name="New Terrain" tile="-1"/>
+  </terraintypes>
+  <tile id="0" terrain=",1,,1"/>
+  <tile id="1" terrain="1,1,1,1"/>
+  <tile id="2" terrain="1,1,1,1"/>
+  <tile id="3" terrain="1,,1,"/>
+  <tile id="8" terrain=",1,,1"/>
+  <tile id="9" terrain="1,1,1,1"/>
+  <tile id="10" terrain="1,1,1,1"/>
+  <tile id="11" terrain="1,,1,"/>
+  <tile id="16" terrain=",1,,1"/>
+  <tile id="17" terrain="1,1,1,1"/>
+  <tile id="18" terrain="1,1,1,1"/>
+  <tile id="19" terrain="1,,1,"/>
+  <tile id="24" terrain=",1,,"/>
+  <tile id="25" terrain="1,1,,"/>
+  <tile id="26" terrain="1,1,,"/>
+  <tile id="27" terrain="1,,,"/>
+ </tileset>
+ <layer name="Tile Layer 2" width="50" height="25">
+  <data encoding="base64" compression="zlib">
+   eJytlbFy1EAQRKXwwvsCQsgMGGwobF9EBD8BGVBll/n/wKtCKo9fvR5dQNAlnW5nd3qmp/c0TdPdwPXA1YqbgS/r87S+fxj4OHA7cLnGbHGn8v+Cw8C8wt4PwHHFXJ71e92j/q4xS96fB97/R2xnVZBH5XZAjPE+Ti95kdtS62+F24wYi6vrZqxjPRlT82N8ypl8bY9r4WGoZx6mnENXf9ME62ba4xnca3lerTyoA+v1Xu41txqf8jzKWYmb/a7n35V+cN6MW9J2yn2vtuTPPOzcWb7drjyo6aQFm4ma3+uBV8CbJl9q1ObI/uO6m+lZV+dolX7Iul0MfALeSl3Mi5KGWX/z5DofpsfK+93AH0Fdk3hQR2l2u9ni+rrfaXo55+Rba/iAvnwfuEcf93gwX/bIen2O923zYbNELg9Ys/Go53W6Snmbdvl/5WZxl9PznLMWtu+PgZ/gcc58mB6YHz2EM2Da3N63e9D8zPzl18DvEnOP2MTDtNR5PWeF/sV7p/LgfNj748Df6d/ML/iKPc/hwfm1e8S0tKf9tHe6n+iR9PhuXs1zzI+tV6l3nCNb1/k4/YS80hmsW/IV+27r2Mdulro7ixyoBZuLzqvsHqnvqR92rtXFNJR8zvS45zsWZ9w6n2N+iZdprds/zUf6nebIctrTedI2n90sdR6SakYtsSZd/cyLzYMZm3RrPTG9W29tTiw21aS7+1Kf7CybgZRfOiPVppuJpONz7gbTD+e682brM3XC76ZXgrmQg3E1Tab5tn1Tj1i3Ll+rWfJ482yre/L95EWmj+7MpNXl+xNqBEiC
+  </data>
+ </layer>
+ <layer name="Tile Layer 2" width="50" height="25">
+  <data encoding="base64" compression="zlib">
+   eJzt1EENACAMA8A5xb8LNPAgpOVOQdcmmwFuWa8DfKq199a7GqRsk5IT4ITfBkCSDf7lAjs=
+  </data>
+ </layer>
+</map>

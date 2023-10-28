@@ -1,0 +1,6 @@
+//settings for Master
+port: 5687
+side: left
+sideZoneWidth: 1
+screenWidth: 1920
+screenHeight: 1080

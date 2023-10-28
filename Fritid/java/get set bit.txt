@@ -1,0 +1,14 @@
+	public static boolean getBit(int tal, int i){
+		int t = tal >> i;
+		return (t & 0b1) == 1 ? true : false;
+	}
+	
+	public static int setBit(int tal, int i, boolean b){
+		int mask = 1 << i;
+		if(b){
+			return tal | mask;
+		}else{
+			mask = ~mask;
+			return tal & mask;
+		}
+	}

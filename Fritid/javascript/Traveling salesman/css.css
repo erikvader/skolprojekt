@@ -1,0 +1,26 @@
+*{
+	padding: 0;
+	margin: 0;
+}
+
+#layout{
+	display: block;
+	width: 640px;
+	margin: auto;
+	padding-top: 20px;
+}
+
+	#controls{
+		width: 100%;
+		text-align: center;
+	}
+	
+		#controls > *{
+			display: inline-block;
+			margin-top: 5px;
+			font-size: 20px;
+		}
+	
+		#startBtn{
+			padding: 1.5%;
+		}

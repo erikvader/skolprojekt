@@ -1,0 +1,6 @@
+//settings for Slave
+ip: 192.168.1.71
+port: 5687
+sideZoneWidth: 1
+screenWidth: 1366
+screenHeight: 768
