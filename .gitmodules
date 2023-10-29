@@ -19,3 +19,6 @@
 [submodule "Universitetet/Machine Learning/tetris-neat"]
 	path = Universitetet/Machine Learning/tetris-neat
 	url = git@github.com:erikvader/tetris-neat.git
+[submodule "Universitetet/Sneakychat/Sneakychat"]
+	path = Universitetet/Sneakychat/Sneakychat
+	url = git@github.com:erikvader/Sneakychat.git
