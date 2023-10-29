@@ -13,3 +13,6 @@
 [submodule "Universitetet/Datacomm/peas-rf-cp"]
 	path = Universitetet/Datacomm/peas-rf-cp
 	url = git@github.com:erikvader/peas-rf-cp.git
+[submodule "Universitetet/Kandidatarbete/DocBot"]
+	path = Universitetet/Kandidatarbete/DocBot
+	url = git@github.com:erikvader/DocBot.git
