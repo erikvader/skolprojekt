@@ -1,0 +1,7 @@
+# pack-refs with: peeled fully-peeled sorted 
+a0e644a4894605b8355b83d83c8273adf54a6359 refs/remotes/origin/api-entity
+68e5f348ab77cccaa742d02abdd91cebd0d49f4d refs/remotes/origin/condition-manager
+f2bd5769e7ddbd44e08d188a28150d08aa4690a3 refs/remotes/origin/create-delete-contract
+ac9cb0ca01e4fe7931cf6e63ffd9d5696275844c refs/remotes/origin/editor-styling
+95ba3581c388123950dc424124009fa04eb34150 refs/remotes/origin/master
+64561e1f5adaf4380a6cb6438eeb66866c42a433 refs/remotes/origin/styling-admin
