@@ -1,0 +1,3 @@
+[submodule "Universitetet/Exjobb/MiniZinc-linter"]
+	path = Universitetet/Exjobb/MiniZinc-linter
+	url = https://github.com/erikvader/MiniZinc-linter
