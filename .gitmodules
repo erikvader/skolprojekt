@@ -7,3 +7,6 @@
 [submodule "Universitetet/IOOPM/skvadrarna"]
 	path = Universitetet/IOOPM/skvadrarna
 	url = git@github.com:erikvader/skvadrarna.git
+[submodule "Universitetet/PKD/befunge-interpreter"]
+	path = Universitetet/PKD/befunge-interpreter
+	url = git@github.com:erikvader/befunge-interpreter.git
