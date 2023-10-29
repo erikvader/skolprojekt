@@ -22,3 +22,6 @@
 [submodule "Universitetet/Sneakychat/Sneakychat"]
 	path = Universitetet/Sneakychat/Sneakychat
 	url = git@github.com:erikvader/Sneakychat.git
+[submodule "Universitetet/Exjobb/Report/MiniZinc-linter-report"]
+	path = Universitetet/Exjobb/Report/MiniZinc-linter-report
+	url = git@github.com:erikvader/MiniZinc-linter-report.git
