@@ -16,3 +16,6 @@
 [submodule "Universitetet/Kandidatarbete/DocBot"]
 	path = Universitetet/Kandidatarbete/DocBot
 	url = git@github.com:erikvader/DocBot.git
+[submodule "Universitetet/Machine Learning/tetris-neat"]
+	path = Universitetet/Machine Learning/tetris-neat
+	url = git@github.com:erikvader/tetris-neat.git
