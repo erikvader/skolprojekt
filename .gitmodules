@@ -4,3 +4,6 @@
 [submodule "Universitetet/Storprojekt/vov"]
 	path = Universitetet/Storprojekt/vov
 	url = https://github.com/erikvader/vov
+[submodule "Universitetet/IOOPM/skvadrarna"]
+	path = Universitetet/IOOPM/skvadrarna
+	url = git@github.com:erikvader/skvadrarna.git
