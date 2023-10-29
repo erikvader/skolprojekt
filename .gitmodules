@@ -10,3 +10,6 @@
 [submodule "Universitetet/PKD/befunge-interpreter"]
 	path = Universitetet/PKD/befunge-interpreter
 	url = git@github.com:erikvader/befunge-interpreter.git
+[submodule "Universitetet/Datacomm/peas-rf-cp"]
+	path = Universitetet/Datacomm/peas-rf-cp
+	url = git@github.com:erikvader/peas-rf-cp.git
